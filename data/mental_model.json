@@ -8,6 +8,24 @@
       "related_to": "JIRA-1234",
       "timestamp": "2024-05-27T14:35:00Z",
       "message": "Fix payroll rounding issue [JIRA-1234]"
+    },
+    {
+      "id": "JIRA-1234",
+      "type": "ticket",
+      "initiator": "Jane Doe",
+      "tool": "Jira",
+      "related_to": "PayrollApp",
+      "timestamp": "2024-05-25T10:15:00Z",
+      "summary": "Fix payroll rounding issue"
+    },
+    {
+      "id": "JENKINS-049",
+      "type": "deployment",
+      "initiator": "CI Pipeline",
+      "tool": "Jenkins",
+      "related_to": "PayrollApp",
+      "timestamp": "2024-05-27T15:10:00Z",
+      "summary": "Deployed version v1.2.0 to prod"
     }
   ]
 }
