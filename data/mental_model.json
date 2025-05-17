@@ -1,1 +1,13 @@
-
+{
+  "events": [
+    {
+      "id": "COMMIT-a1b2c3d",
+      "type": "commit",
+      "initiator": "Jane Doe",
+      "tool": "GitHub",
+      "related_to": "JIRA-1234",
+      "timestamp": "2024-05-27T14:35:00Z",
+      "message": "Fix payroll rounding issue [JIRA-1234]"
+    }
+  ]
+}
