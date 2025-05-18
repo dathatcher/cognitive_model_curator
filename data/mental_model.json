@@ -1,6 +1,18 @@
 {
   "events": [
     {
+      "id": "JENKINS-049",
+      "type": "deployment",
+      "initiator": "CI Pipeline",
+      "tool": "Jenkins",
+      "related_to": [
+        "COMMIT-a1b2c3d",
+        "COMMIT-a9z8x7y"
+      ],
+      "timestamp": "2024-05-27T15:10:00Z",
+      "summary": "Deployed version v1.2.0 to prod"
+    },
+    {
       "id": "COMMIT-a1b2c3d",
       "type": "commit",
       "initiator": "Jane Doe",
@@ -17,15 +29,6 @@
       "related_to": "PayrollApp",
       "timestamp": "2024-05-25T10:15:00Z",
       "summary": "Fix payroll rounding issue"
-    },
-    {
-      "id": "JENKINS-049",
-      "type": "deployment",
-      "initiator": "CI Pipeline",
-      "tool": "Jenkins",
-      "related_to": "PayrollApp",
-      "timestamp": "2024-05-27T15:10:00Z",
-      "summary": "Deployed version v1.2.0 to prod"
     }
   ]
 }

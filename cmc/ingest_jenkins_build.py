@@ -3,6 +3,7 @@
 
 import json
 import os
+import re
 
 RAW_JENKINS_PATH = os.path.join("..", "data", "input_events", "jenkins_049.json")
 MENTAL_MODEL_PATH = os.path.join("..", "data", "mental_model.json")
@@ -12,12 +13,30 @@ def load_raw_jenkins(path):
         return json.load(f)
 
 def parse_jenkins_event(raw):
+    # Prefer explicit reference(s)
+    related = []
+
+    # Accept one or more related_event_ids
+    if "related_event_id" in raw:
+        related.append(raw["related_event_id"])
+    elif "related_event_ids" in raw and isinstance(raw["related_event_ids"], list):
+        related.extend(raw["related_event_ids"])
+
+    # Fallback to pattern match from release_tag
+    if not related:
+        commit_matches = re.findall(r"[a-f0-9]{6,10}", raw.get("release_tag", ""))
+        jira_matches = re.findall(r"JIRA-\d+", raw.get("release_tag", ""))
+
+        for match in commit_matches:
+            related.append(f"COMMIT-{match}")
+        related.extend(jira_matches)
+
     return {
         "id": f"JENKINS-{raw['build_id']}",
         "type": "deployment",
         "initiator": raw.get("triggered_by", "CI Pipeline"),
         "tool": "Jenkins",
-        "related_to": raw.get("application"),
+        "related_to": related if related else None,
         "timestamp": raw.get("timestamp"),
         "summary": f"Deployed version {raw.get('release_tag')} to {raw.get('environment')}"
     }
