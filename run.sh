@@ -1,0 +1,1 @@
+python -m cmc.run_pipeline

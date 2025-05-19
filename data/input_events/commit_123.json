@@ -1,6 +1,6 @@
 {
   "commit_id": "a1b2c3d",
-  "message": "Fix payroll rounding issue [JIRA-1234]",
+  "message": "Fix exception being thrown after a release and caused on outage, emergency fix",
   "author": "Jane Doe",
   "timestamp": "2024-05-27T14:35:00Z",
   "repository": "payroll-service"
