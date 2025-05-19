@@ -1,6 +1,28 @@
 {
   "events": [
     {
+      "id": "JIRA-1234",
+      "type": "ticket",
+      "initiator": "Jane Doe",
+      "tool": "Jira",
+      "related_to": "PayrollApp",
+      "timestamp": "2024-05-25T10:15:00Z",
+      "summary": "Fix payroll rounding issue",
+      "phase": "plan",
+      "event_group": "group-143f5c"
+    },
+    {
+      "id": "COMMIT-a1b2c3d",
+      "type": "commit",
+      "initiator": "Jane Doe",
+      "tool": "GitHub",
+      "related_to": "JIRA-1234",
+      "timestamp": "2024-05-27T14:35:00Z",
+      "message": "Fix payroll rounding issue [JIRA-1234]",
+      "phase": "build",
+      "event_group": "group-db296c"
+    },
+    {
       "id": "JENKINS-049",
       "type": "deployment",
       "initiator": "CI Pipeline",
@@ -10,25 +32,9 @@
         "COMMIT-a9z8x7y"
       ],
       "timestamp": "2024-05-27T15:10:00Z",
-      "summary": "Deployed version v1.2.0 to prod"
-    },
-    {
-      "id": "COMMIT-a1b2c3d",
-      "type": "commit",
-      "initiator": "Jane Doe",
-      "tool": "GitHub",
-      "related_to": "JIRA-1234",
-      "timestamp": "2024-05-27T14:35:00Z",
-      "message": "Fix payroll rounding issue [JIRA-1234]"
-    },
-    {
-      "id": "JIRA-1234",
-      "type": "ticket",
-      "initiator": "Jane Doe",
-      "tool": "Jira",
-      "related_to": "PayrollApp",
-      "timestamp": "2024-05-25T10:15:00Z",
-      "summary": "Fix payroll rounding issue"
+      "summary": "Deployed version v1.2.0 to prod",
+      "phase": "release",
+      "event_group": "group-3ea28e"
     }
   ]
 }
