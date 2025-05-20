@@ -1,6 +1,6 @@
 {
   "commit_id": "a1b2c3d",
-  "message": "Fix exception being thrown after a release and caused on outage, emergency fix",
+  "message": "Fixing payroll main interest calculation",
   "author": "Jane Doe",
   "timestamp": "2024-05-27T14:35:00Z",
   "repository": "payroll-service"

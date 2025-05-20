@@ -1,6 +1,6 @@
 {
   "ticket_id": "JIRA-1234",
-  "summary": "Fix exception being thrown after a release and caused on outage, emergency fix",
+  "summary": "Fixing payroll main interest calculation",
   "assignee": "Jane Doe",
   "status": "In Progress",
   "priority": "High",

@@ -7,7 +7,7 @@
       "tool": "Jira",
       "related_to": "PayrollApp",
       "timestamp": "2024-05-25T10:15:00Z",
-      "summary": "Fix exception being thrown after a release and caused on outage, emergency fix",
+      "summary": "Fixing payroll main interest calculation",
       "phase": "plan",
       "event_group": "group-143f5c"
     },
@@ -18,7 +18,7 @@
       "tool": "GitHub",
       "related_to": null,
       "timestamp": "2024-05-27T14:35:00Z",
-      "message": "Fix exception being thrown after a release and caused on outage, emergency fix",
+      "message": "Fixing payroll main interest calculation",
       "intention": "Neutral",
       "phase": "build",
       "event_group": "group-ff85f2"
