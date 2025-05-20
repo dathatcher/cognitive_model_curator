@@ -20,6 +20,10 @@
       "timestamp": "2024-05-27T14:35:00Z",
       "message": "Fixing payroll main interest calculation",
       "intention": "Neutral",
+      "policy_violations": [
+        "unparsable_llm_response"
+      ],
+      "justification": "LLM response could not be parsed",
       "phase": "build",
       "event_group": "group-ff85f2"
     },
