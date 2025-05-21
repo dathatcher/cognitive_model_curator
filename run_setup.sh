@@ -1,0 +1,1 @@
+streamlit run init_project_app.py
