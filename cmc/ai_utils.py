@@ -23,7 +23,7 @@ def save_cache(cache):
 def hash_prompt(prompt):
     return hashlib.sha256(prompt.encode()).hexdigest()
 
-def run_llm_prompt(prompt: str, model="gpt-3.5-turbo", cache_enabled=True) -> str:
+def run_llm_prompt(prompt: str, model="gpt-4-turbo", cache_enabled=True) -> str:
     cache = load_cache() if cache_enabled else {}
     key = hash_prompt(prompt)
 

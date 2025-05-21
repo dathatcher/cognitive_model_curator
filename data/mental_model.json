@@ -21,9 +21,9 @@
       "message": "Fixing payroll main interest calculation",
       "intention": "Neutral",
       "policy_violations": [
-        "unparsable_llm_response"
+        "Does not reference a Jira ticket"
       ],
-      "justification": "LLM response could not be parsed",
+      "justification": "The commit message is short and does not reference a Jira ticket as required by the commit policy.",
       "phase": "build",
       "event_group": "group-ff85f2"
     },
