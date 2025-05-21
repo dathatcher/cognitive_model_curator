@@ -46,10 +46,10 @@ Please propose an initial set of top-level distinctions (categories of entities)
 
             # Extract the JSON portion using regex
             json_match = re.search(r"```json\n(.*?)```", result_text, re.DOTALL)
-            if json_match:
-                raw_json = json_match.group(1).strip()
-            else:
-                raw_json = result_text  # fallback if no code block
+            raw_json = json_match.group(1).strip() if json_match else result_text.strip()
+
+            # Sanitize smart quotes
+            raw_json = raw_json.replace("“", """).replace("”", """).replace("’", "'")
 
             try:
                 result_json = json.loads(raw_json)
@@ -80,6 +80,9 @@ Please propose an initial set of top-level distinctions (categories of entities)
                 st.success(f"📁 Project initialized at: {project_path}")
 
             except Exception as parse_err:
-                st.error(f"Failed to parse LLM response: {parse_err}")
+                st.error("Failed to parse LLM response into JSON.")
+                st.code(raw_json, language="json")
+                st.stop()
+
         except Exception as e:
             st.error(f"OpenAI API error: {e}")

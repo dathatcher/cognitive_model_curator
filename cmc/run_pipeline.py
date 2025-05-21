@@ -1,60 +1,40 @@
-# run_pipeline.py
-# CMC pipeline: dynamically build full systems_model.json using modular loaders
 
-import json
-from cmc.ingest.tools_loader import ToolsLoader
-from cmc.ingest.applications_loader import ApplicationsLoader
-from cmc.ingest.people_loader import PeopleLoader
-from cmc.ingest.servers_loader import ServersLoader
-from cmc.ingest.teams_loader import TeamsLoader
-from cmc.ingest.events_loader import EventsLoader
+import os
+import importlib
+import inspect
+from pathlib import Path
+from cmc.llm_classifier import add_entity_to_model
 
-OUTPUT_PATH = "data/systems_model.json"
+# Path to the mental model to update
+MODEL_PATH = "data/systems_model.json"
+SYSTEM_CONTEXT = "IT Organization"
 
-def build_full_mental_model():
-    model = {
-        "tools": ToolsLoader().load(),
-        "applications": ApplicationsLoader().load(),
-        "people": PeopleLoader().load(),
-        "servers": ServersLoader().load(),
-        "teams": TeamsLoader().load(),
-        "events": EventsLoader().load()
-    }
+# Dynamically import all loader modules from cmc.ingest
+def discover_loaders():
+    loader_dir = Path("cmc/ingest")
+    loader_modules = []
 
-    with open(OUTPUT_PATH, "w") as f:
-        json.dump(model, f, indent=2)
+    for file in loader_dir.glob("*_loader.py"):
+        module_name = f"cmc.ingest.{file.stem}"
+        module = importlib.import_module(module_name)
+        loader_modules.append(module)
 
-    print(f"✅ systems_model.json generated at {OUTPUT_PATH}")
+    return loader_modules
 
-if __name__ == "__main__":
-    build_full_mental_model()
-# run_pipeline.py
-# CMC pipeline: dynamically build full systems_model.json using modular loaders
+def run_ingestion_pipeline():
+    print("🔍 Discovering loaders...")
+    loaders = discover_loaders()
 
-import json
-from cmc.ingest.tools_loader import ToolsLoader
-from cmc.ingest.applications_loader import ApplicationsLoader
-from cmc.ingest.people_loader import PeopleLoader
-from cmc.ingest.servers_loader import ServersLoader
-from cmc.ingest.teams_loader import TeamsLoader
-from cmc.ingest.events_loader import EventsLoader
+    for module in loaders:
+        for name, obj in inspect.getmembers(module):
+            if inspect.isclass(obj) and name.endswith("Loader"):
+                print(f"📥 Running loader: {name}")
+                loader_instance = obj()
+                entities = loader_instance.load()
+                for entity in entities:
+                    add_entity_to_model(entity, MODEL_PATH, context=SYSTEM_CONTEXT)
 
-OUTPUT_PATH = "data/systems_model.json"
-
-def build_full_mental_model():
-    model = {
-        "tools": ToolsLoader().load(),
-        "applications": ApplicationsLoader().load(),
-        "people": PeopleLoader().load(),
-        "servers": ServersLoader().load(),
-        "teams": TeamsLoader().load(),
-        "events": EventsLoader().load()
-    }
-
-    with open(OUTPUT_PATH, "w") as f:
-        json.dump(model, f, indent=2)
-
-    print(f"✅ systems_model.json generated at {OUTPUT_PATH}")
+    print(f"✅ All data ingested and classified into {MODEL_PATH}")
 
 if __name__ == "__main__":
-    build_full_mental_model()
+    run_ingestion_pipeline()
