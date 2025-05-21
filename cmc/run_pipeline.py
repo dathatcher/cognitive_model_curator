@@ -1,38 +1,60 @@
 # run_pipeline.py
-# Cognitive Model Curator end-to-end runner
+# CMC pipeline: dynamically build full systems_model.json using modular loaders
 
 import json
-from cmc.ingest_github_commit import ingest as ingest_github
-from cmc.ingest_jira_ticket import ingest as ingest_jira
-from cmc.ingest_jenkins_build import ingest as ingest_jenkins
-from cmc.orchestrator import orchestrate
+from cmc.ingest.tools_loader import ToolsLoader
+from cmc.ingest.applications_loader import ApplicationsLoader
+from cmc.ingest.people_loader import PeopleLoader
+from cmc.ingest.servers_loader import ServersLoader
+from cmc.ingest.teams_loader import TeamsLoader
+from cmc.ingest.events_loader import EventsLoader
 
-MENTAL_MODEL_PATH = "data/mental_model.json"
+OUTPUT_PATH = "data/systems_model.json"
 
-# Load or initialize mental model
-try:
-    with open(MENTAL_MODEL_PATH, "r") as f:
-        model = json.load(f)
-except FileNotFoundError:
-    model = {"events": []}
+def build_full_mental_model():
+    model = {
+        "tools": ToolsLoader().load(),
+        "applications": ApplicationsLoader().load(),
+        "people": PeopleLoader().load(),
+        "servers": ServersLoader().load(),
+        "teams": TeamsLoader().load(),
+        "events": EventsLoader().load()
+    }
 
-# Run ingestion modules
-print("[Ingest] GitHub...")
-events_github = ingest_github("data/input_events/commit_123.json")
-print("[Ingest] Jira...")
-events_jira = ingest_jira("data/input_events/jira_123.json")
-print("[Ingest] Jenkins...")
-events_jenkins = ingest_jenkins("data/input_events/jenkins_049.json")
+    with open(OUTPUT_PATH, "w") as f:
+        json.dump(model, f, indent=2)
 
-# Merge into mental model
-model["events"].extend(events_github + events_jira + events_jenkins)
+    print(f"✅ systems_model.json generated at {OUTPUT_PATH}")
 
-# Run orchestration
-print("[Orchestrate] Tagging and sorting events...")
-model["events"] = orchestrate(model["events"], verbose=True)
+if __name__ == "__main__":
+    build_full_mental_model()
+# run_pipeline.py
+# CMC pipeline: dynamically build full systems_model.json using modular loaders
 
-# Save output
-with open(MENTAL_MODEL_PATH, "w") as f:
-    json.dump(model, f, indent=2)
+import json
+from cmc.ingest.tools_loader import ToolsLoader
+from cmc.ingest.applications_loader import ApplicationsLoader
+from cmc.ingest.people_loader import PeopleLoader
+from cmc.ingest.servers_loader import ServersLoader
+from cmc.ingest.teams_loader import TeamsLoader
+from cmc.ingest.events_loader import EventsLoader
 
-print("✅ Updated mental_model.json with orchestrated events.")
+OUTPUT_PATH = "data/systems_model.json"
+
+def build_full_mental_model():
+    model = {
+        "tools": ToolsLoader().load(),
+        "applications": ApplicationsLoader().load(),
+        "people": PeopleLoader().load(),
+        "servers": ServersLoader().load(),
+        "teams": TeamsLoader().load(),
+        "events": EventsLoader().load()
+    }
+
+    with open(OUTPUT_PATH, "w") as f:
+        json.dump(model, f, indent=2)
+
+    print(f"✅ systems_model.json generated at {OUTPUT_PATH}")
+
+if __name__ == "__main__":
+    build_full_mental_model()

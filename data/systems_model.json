@@ -1,0 +1,202 @@
+{
+  "tools": [
+    {
+      "name": "Datadog",
+      "type": "Observability",
+      "relationships": {
+        "monitors_applications": [
+          "PayrollApp",
+          "BillingService"
+        ],
+        "used_by_teams": [
+          "Observability",
+          "DevOps"
+        ],
+        "integrates_with": [
+          "Jira",
+          "Slack"
+        ]
+      },
+      "systems": [
+        "MonitoringStack"
+      ],
+      "perspectives": {
+        "ObservabilityTeam": "Essential APM",
+        "DevOpsTeam": "Optional/experimental",
+        "SecurityTeam": "Not evaluated"
+      }
+    },
+    {
+      "name": "Checkly",
+      "type": "Monitoring",
+      "relationships": {}
+    }
+  ],
+  "applications": [
+    {
+      "name": "PayrollApp",
+      "environments": [
+        "prod",
+        "staging"
+      ],
+      "deployed_on": [
+        "VM-PAY-01",
+        "VM-PAY-02"
+      ],
+      "owned_by": "HR Dev Team",
+      "monitored_by": [
+        "Datadog"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "name": "Jane Doe",
+      "role": "Site Reliability Engineer",
+      "teams": [
+        "SRE",
+        "DevOps"
+      ],
+      "uses_tools": [
+        "Terraform",
+        "Datadog",
+        "Jira"
+      ]
+    }
+  ],
+  "servers": [
+    {
+      "hostname": "VM-PAY-01",
+      "environment": "prod",
+      "runs": [
+        "PayrollApp"
+      ],
+      "monitored_by": []
+    }
+  ],
+  "teams": [
+    {
+      "name": "DevOps",
+      "roles": [
+        "Site Reliability Engineer",
+        "Platform Engineer"
+      ],
+      "members": [
+        "Jane Doe"
+      ],
+      "responsibilities": {
+        "owns_tools": [
+          "Terraform",
+          "Jira"
+        ],
+        "monitors_apps": [
+          "PayrollApp"
+        ],
+        "integrates_with": [
+          "Slack"
+        ]
+      }
+    },
+    {
+      "name": "Observability",
+      "roles": [
+        "Monitoring Engineer"
+      ],
+      "members": [],
+      "responsibilities": {
+        "owns_tools": [
+          "Datadog"
+        ],
+        "monitors_apps": [],
+        "integrates_with": []
+      }
+    },
+    {
+      "name": "SRE",
+      "roles": [
+        "Site Reliability Engineer"
+      ],
+      "members": [
+        "Jane Doe"
+      ],
+      "responsibilities": {
+        "responds_to": [
+          "PayrollApp"
+        ],
+        "uses_tools": [
+          "Datadog",
+          "Terraform"
+        ]
+      }
+    },
+    {
+      "name": "HR Dev Team",
+      "roles": [
+        "Application Developer"
+      ],
+      "members": [],
+      "responsibilities": {
+        "owns_apps": [
+          "PayrollApp"
+        ]
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": "RELEASE-v1.2.0",
+      "type": "release",
+      "tool": "Jenkins",
+      "initiator": "CI Pipeline",
+      "related_to": "PayrollApp",
+      "timestamp": "2025-05-15T14:05:00Z",
+      "tags": [
+        "automated",
+        "prod",
+        "success"
+      ],
+      "sub_events": [
+        "JIRA-1234",
+        "COMMIT-a1b2c3",
+        "JENKINS-049"
+      ]
+    },
+    {
+      "id": "JIRA-1234",
+      "type": "ticket",
+      "tool": "Jira",
+      "initiator": "Jane Doe",
+      "related_to": "PayrollApp",
+      "timestamp": "2025-05-15T13:22:00Z",
+      "tags": [
+        "bug",
+        "critical",
+        "deployment"
+      ]
+    },
+    {
+      "id": "COMMIT-a1b2c3",
+      "type": "commit",
+      "tool": "GitHub",
+      "initiator": "Jane Doe",
+      "related_to": "PayrollApp",
+      "timestamp": "2025-05-15T14:00:00Z",
+      "tags": [
+        "feature",
+        "auth"
+      ]
+    },
+    {
+      "id": "JENKINS-049",
+      "type": "deployment",
+      "tool": "Jenkins",
+      "initiator": "CI Pipeline",
+      "related_to": "PayrollApp",
+      "timestamp": "2025-05-15T14:02:00Z",
+      "tags": [
+        "success",
+        "prod"
+      ]
+    }
+  ]
+}
