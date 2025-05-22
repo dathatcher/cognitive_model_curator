@@ -5,6 +5,7 @@ from cmc.ingest.people_loader import PeopleLoader
 from cmc.ingest.servers_loader import ServersLoader
 from cmc.ingest.teams_loader import TeamsLoader
 from cmc.ingest.events_loader import EventsLoader
+from cmc.ingest.networks_loader import NetworksLoader
 
 def build_mental_model():
     model = {
@@ -12,6 +13,7 @@ def build_mental_model():
         "applications": ApplicationsLoader().load(),
         "people": PeopleLoader().load(),
         "servers": ServersLoader().load(),
+        "networks": NetworksLoader().load(),
         "teams": TeamsLoader().load(),
         "events": EventsLoader().load()
     }

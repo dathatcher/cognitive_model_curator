@@ -5,11 +5,10 @@ class ServersLoader:
     def load(self) -> list:
         return [
             {
-                "hostname": "VM-PAY-01",
-                "environment": "prod",
-                "IP Address": "145.223.45.6",
-                "runs": ["PayrollApp"],
-                "subnet": ["V-45"],
+                "vlan_name": "V-45",
+                "subnet": "145.223.45.1",
+                "gateway": "145.223.45.1",
+                "broadcast": "145.223.45.100",
                 "monitored_by": []
             }
         ]
