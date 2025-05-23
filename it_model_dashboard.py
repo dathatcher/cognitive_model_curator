@@ -22,6 +22,22 @@ selected_categories = st.multiselect("Select categories to display", categories,
 edge_types = set(rel["type"] for rel in system_model.get("relationships", []))
 selected_edge_types = st.multiselect("Select edge types to display", sorted(edge_types), default=list(edge_types))
 
+# System role classification using Systems Thinking
+def classify_role(data):
+    if any(k in data for k in ["hostname", "vlan_name", "subnet", "IP Address"]):
+        return "input"
+    elif any(k in data for k in ["runs", "deployed_on", "owns_apps"]):
+        return "transform"
+    elif any(k in data for k in ["responds_to"]):
+        return "feedback"
+    elif any(k in data for k in ["uses_tools", "monitors_apps"]):
+        return "feedback"
+    elif any(k in data for k in ["monitored_by"]):
+        return "output"
+    return "context"
+
+role_levels = {"input": 0, "transform": 1, "output": 2, "feedback": 3, "context": 4}
+
 # Initialize graph
 G = nx.DiGraph()
 category_colors = {
@@ -31,6 +47,8 @@ category_colors = {
     "Change Management": "#9467bd",
     "Incident Response": "#d62728"
 }
+
+node_roles = {}
 
 # Extract nodes and edges
 for category in selected_categories:
@@ -44,7 +62,10 @@ for category in selected_categories:
             continue
 
         node_color = category_colors.get(category, "gray")
-        G.add_node(node_id, label=node_id, node_color=node_color)
+        system_role = classify_role(data)
+        node_roles[node_id] = system_role
+
+        G.add_node(node_id, label=node_id, node_color=node_color, role=system_role)
 
         if category == "Applications" and "relationships" in data:
             for rel_type, targets in data["relationships"].items():
@@ -73,8 +94,21 @@ for rel in system_model.get("relationships", []):
     if rel["type"] in selected_edge_types:
         G.add_edge(rel["source"], rel["target"], label=rel["type"])
 
-# Draw graph
-pos = nx.spring_layout(G, k=0.8)
+# Layout by system role level
+def layered_layout(G, role_levels):
+    pos = {}
+    layer_x = {}
+    spacing_x = 2
+    spacing_y = -2
+    for node, data in G.nodes(data=True):
+        role = data.get("role", "context")
+        layer = role_levels.get(role, 4)
+        x = layer_x.get(layer, 0)
+        pos[node] = (x, spacing_y * layer)
+        layer_x[layer] = x + spacing_x
+    return pos
+
+pos = layered_layout(G, role_levels)
 fig, ax = plt.subplots(figsize=(14, 10))
 colors = [G.nodes[n].get("node_color", "gray") for n in G.nodes()]
 nx.draw(G, pos, with_labels=True, node_color=colors, ax=ax, edge_color="#cccccc")
