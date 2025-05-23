@@ -9,7 +9,13 @@ class ServersLoader:
                 "environment": "prod",
                 "IP Address": "145.223.45.6",
                 "runs": ["PayrollApp"],
-                "subnet": ["V-45"],
-                "monitored_by": []
-            }
+                "subnet": ["V-45"]
+            },
+             {
+                "hostname": "VM-PAY-02",
+                "environment": "staging",
+                "IP Address": "145.223.46.0",
+                "runs": ["PayrollApp"],
+                "subnet": ["V-46"]
+             }
         ]

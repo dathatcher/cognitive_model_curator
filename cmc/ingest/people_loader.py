@@ -9,5 +9,11 @@ class PeopleLoader:
                 "role": "Site Reliability Engineer",
                 "teams": ["SRE", "DevOps"],
                 "uses_tools": ["Terraform", "Datadog", "Jira"]
+            },
+            {
+                "name": "DA Thatcher",
+                "role": "Technical Lead",
+                "teams": [],
+                "uses_tools": []
             }
         ]

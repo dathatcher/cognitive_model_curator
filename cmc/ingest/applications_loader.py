@@ -8,7 +8,6 @@ class ApplicationsLoader:
                 "name": "PayrollApp",
                 "environments": ["prod", "staging"],
                 "deployed_on": ["VM-PAY-01", "VM-PAY-02"],
-                "owned_by": "HR Dev Team",
-                "monitored_by": ["Datadog"]
+                "owned_by": "HR Dev Team"
             }
         ]

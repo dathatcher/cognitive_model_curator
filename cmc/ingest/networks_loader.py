@@ -8,7 +8,12 @@ class ServersLoader:
                 "vlan_name": "V-45",
                 "subnet": "145.223.45.1",
                 "gateway": "145.223.45.1",
-                "broadcast": "145.223.45.100",
-                "monitored_by": []
+                "broadcast": "145.223.45.100"                
+            },
+             {
+                "vlan_name": "V-46",
+                "subnet": "145.223.46.0",
+                "gateway": "145.223.46.11",
+                "broadcast": "145.223.45.98"                
             }
         ]

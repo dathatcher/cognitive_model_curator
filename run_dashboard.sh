@@ -1,0 +1,1 @@
+streamlit run it_model_dashboard.py
