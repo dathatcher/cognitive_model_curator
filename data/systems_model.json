@@ -549,6 +549,76 @@
         "broadcast": "145.223.45.98"
       },
       "llm_reasoning": "The data object contains information about network configurations such as VLAN name, subnet, gateway, and broadcast address, which are all related to the IT infrastructure setup and management."
+    },
+    {
+      "data": {
+        "hostname": "VM-PAY-01",
+        "environment": "prod",
+        "IP Address": "145.223.45.6",
+        "runs": [
+          "PayrollApp"
+        ],
+        "subnet": [
+          "V-45"
+        ]
+      },
+      "llm_reasoning": "The data object contains information about a virtual machine specifically used for payroll applications, including its hostname, IP address, and subnet. These are all related to the physical or virtual resources used within an IT environment, which falls under the 'Infrastructure' category."
+    },
+    {
+      "data": {
+        "hostname": "VM-PAY-02",
+        "environment": "staging",
+        "IP Address": "145.223.46.0",
+        "runs": [
+          "PayrollApp"
+        ],
+        "subnet": [
+          "V-46"
+        ]
+      },
+      "llm_reasoning": "The data object includes details such as hostname, IP address, environment, and subnet, pointing to elements that are part of the IT infrastructure setup. It specifically relates to the setup and organization of hardware and networks in the staging environment, which is fundamental to infrastructure."
+    },
+    {
+      "data": {
+        "name": "DevOps",
+        "roles": [
+          "Site Reliability Engineer",
+          "Platform Engineer"
+        ],
+        "members": [
+          "Jane Doe"
+        ],
+        "responsibilities": {
+          "owns_tools": [
+            "Terraform",
+            "Jira"
+          ],
+          "monitors_apps": [
+            "PayrollApp"
+          ],
+          "integrates_with": [
+            "Slack"
+          ]
+        }
+      },
+      "llm_reasoning": "The data object largely revolves around roles, tools, and responsibilities associated with managing the underlying platforms and systems (like Terraform for infrastructure automation and Jira for project management), which are core components of IT infrastructure. The focus on tool ownership and application monitoring supports classifying it under Infrastructure."
+    },
+    {
+      "data": {
+        "name": "Observability",
+        "roles": [
+          "Monitoring Engineer"
+        ],
+        "members": [],
+        "responsibilities": {
+          "owns_tools": [
+            "Datadog"
+          ],
+          "monitors_apps": [],
+          "integrates_with": []
+        }
+      },
+      "llm_reasoning": "The data object 'Observability' clearly focuses on tools and responsibilities associated with monitoring and managing the performance of IT systems, which is a crucial part of Infrastructure within an IT organization."
     }
   ],
   "Applications": [
@@ -1229,6 +1299,58 @@
         "owned_by": "HR Dev Team"
       },
       "llm_reasoning": "The data object named 'PayrollApp' describes an application, indicated by details about its deployment environments (production and staging) and the infrastructure it is deployed on ('VM-PAY-01' and 'VM-PAY-02'), all of which are typical attributes relevant to application management within an IT organization."
+    },
+    {
+      "data": {
+        "name": "HR Dev Team",
+        "roles": [
+          "Application Developer"
+        ],
+        "members": [],
+        "responsibilities": {
+          "owns_apps": [
+            "PayrollApp"
+          ]
+        }
+      },
+      "llm_reasoning": "The 'HR Dev Team' is primarily focused on application development as evidenced by their role and responsibilities that include ownership of specific applications like 'PayrollApp'. This aligns with the 'Applications' distinction within the IT organization system model."
+    },
+    {
+      "data": {
+        "name": "Datadog",
+        "type": "Observability",
+        "relationships": {
+          "monitors_applications": [
+            "PayrollApp",
+            "BillingService"
+          ],
+          "used_by_teams": [
+            "Observability",
+            "DevOps"
+          ],
+          "integrates_with": [
+            "Jira",
+            "Slack"
+          ]
+        },
+        "systems": [
+          "MonitoringStack"
+        ],
+        "perspectives": {
+          "ObservabilityTeam": "Essential APM",
+          "DevOpsTeam": "Optional/experimental",
+          "SecurityTeam": "Not evaluated"
+        }
+      },
+      "llm_reasoning": "Datadog is classified under 'Applications' because it is specified as an observability application that monitors other applications (PayrollApp, BillingService) and is an integral part of the IT organization's application stack as indicated by its deployment in the 'MonitoringStack'."
+    },
+    {
+      "data": {
+        "name": "Checkly",
+        "type": "Monitoring",
+        "relationships": {}
+      },
+      "llm_reasoning": "The data object 'Checkly', identified as a 'Monitoring' type, suggests it's a tool or application used within the IT organization to monitor aspects like performance or availability of systems. Therefore, it falls under the 'Applications' distinction, which includes software and tools used to support the organization's operations."
     }
   ],
   "Data Streams": [],
@@ -1663,6 +1785,27 @@
         "uses_tools": []
       },
       "llm_reasoning": "The data object describes a person's role and interaction within an IT organization, indicating how they interface and potentially collaborate within the system."
+    },
+    {
+      "data": {
+        "name": "SRE",
+        "roles": [
+          "Site Reliability Engineer"
+        ],
+        "members": [
+          "Jane Doe"
+        ],
+        "responsibilities": {
+          "responds_to": [
+            "PayrollApp"
+          ],
+          "uses_tools": [
+            "Datadog",
+            "Terraform"
+          ]
+        }
+      },
+      "llm_reasoning": "The data object describes 'SRE' which stands for Site Reliability Engineer, incorporating roles, members, and responsibilities that clearly focus on the human interaction within the IT organization system. It involves the interaction between human roles and their tools and responsibilities."
     }
   ],
   "Security Protocols": [],
