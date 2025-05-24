@@ -531,24 +531,6 @@
         }
       },
       "llm_reasoning": "The data object relates to 'Observability' within an IT organization, focusing on tools and roles associated with monitoring and managing system health. This aligns with Infrastructure as it involves essential tools (like Datadog) used in maintaining and overseeing the operational aspects of IT systems."
-    },
-    {
-      "data": {
-        "vlan_name": "V-45",
-        "subnet": "145.223.45.1",
-        "gateway": "145.223.45.1",
-        "broadcast": "145.223.45.100"
-      },
-      "llm_reasoning": "The data object includes details about VLAN configuration and networking parameters such as subnet, gateway, and broadcast address, which are fundamental components of network infrastructure within an IT organization."
-    },
-    {
-      "data": {
-        "vlan_name": "V-46",
-        "subnet": "145.223.46.0",
-        "gateway": "145.223.46.11",
-        "broadcast": "145.223.45.98"
-      },
-      "llm_reasoning": "The data object contains information about network configurations such as VLAN name, subnet, gateway, and broadcast address, which are all related to the IT infrastructure setup and management."
     }
   ],
   "Applications": [
@@ -1214,21 +1196,6 @@
         ]
       },
       "llm_reasoning": "The object describes a deployment event associated with an application (PayrollApp) executed through a CI pipeline tool (Jenkins), indicating it involves the application lifecycle within the IT organization."
-    },
-    {
-      "data": {
-        "name": "PayrollApp",
-        "environments": [
-          "prod",
-          "staging"
-        ],
-        "deployed_on": [
-          "VM-PAY-01",
-          "VM-PAY-02"
-        ],
-        "owned_by": "HR Dev Team"
-      },
-      "llm_reasoning": "The data object named 'PayrollApp' describes an application, indicated by details about its deployment environments (production and staging) and the infrastructure it is deployed on ('VM-PAY-01' and 'VM-PAY-02'), all of which are typical attributes relevant to application management within an IT organization."
     }
   ],
   "Data Streams": [],
@@ -1638,31 +1605,6 @@
         }
       },
       "llm_reasoning": "The data object describes a team structure within an IT organization, focusing on the roles and responsibilities related to human elements such as team composition and ownership of applications, rather than technical infrastructure or data processes."
-    },
-    {
-      "data": {
-        "name": "Jane Doe",
-        "role": "Site Reliability Engineer",
-        "teams": [
-          "SRE",
-          "DevOps"
-        ],
-        "uses_tools": [
-          "Terraform",
-          "Datadog",
-          "Jira"
-        ]
-      },
-      "llm_reasoning": "The data object represents an individual, Jane Doe, categorized based on her role and her interaction with tools and teams within the IT organization. This pertains most directly to the 'Human Interactions' distinction, which covers how people work and collaborate within the system."
-    },
-    {
-      "data": {
-        "name": "DA Thatcher",
-        "role": "Technical Lead",
-        "teams": [],
-        "uses_tools": []
-      },
-      "llm_reasoning": "The data object describes a person's role and interaction within an IT organization, indicating how they interface and potentially collaborate within the system."
     }
   ],
   "Security Protocols": [],
@@ -2548,73 +2490,6 @@
         ]
       },
       "llm_reasoning": "The data object represents a commit in a version control system (GitHub), typically used for managing changes in software development, which is a fundamental aspect of change management within IT organizations."
-    },
-    {
-      "data": {
-        "id": "RELEASE-v1.2.0",
-        "type": "release",
-        "tool": "Jenkins",
-        "initiator": "CI Pipeline",
-        "related_to": "PayrollApp",
-        "timestamp": "2025-05-15T14:05:00Z",
-        "tags": [
-          "automated",
-          "prod",
-          "success"
-        ],
-        "sub_events": [
-          "JIRA-1234",
-          "COMMIT-a1b2c3",
-          "JENKINS-049"
-        ]
-      },
-      "llm_reasoning": "The data object represents a software release event, which is managed by a Jenkins tool as part of an automated CI Pipeline. It clearly pertains to the management of changes in IT applications, particularly focusing on deploying new versions, which is a direct activity within the scope of Change Management."
-    },
-    {
-      "data": {
-        "id": "JIRA-1234",
-        "type": "ticket",
-        "tool": "Jira",
-        "initiator": "Jane Doe",
-        "related_to": "PayrollApp",
-        "timestamp": "2025-05-15T13:22:00Z",
-        "tags": [
-          "bug",
-          "critical",
-          "deployment"
-        ]
-      },
-      "llm_reasoning": "The object represents a ticket logged in Jira, a tool used for tracking deployments, bugs, and changes related to IT applications and infrastructure. The tags and context suggest it is related to managing changes or incidents in an IT organization's infrastructure or applications."
-    },
-    {
-      "data": {
-        "id": "COMMIT-a1b2c3",
-        "type": "commit",
-        "tool": "GitHub",
-        "initiator": "Jane Doe",
-        "related_to": "PayrollApp",
-        "timestamp": "2025-05-15T14:00:00Z",
-        "tags": [
-          "feature",
-          "auth"
-        ]
-      },
-      "llm_reasoning": "The data object describes a 'commit' from a version control system (GitHub), indicating an update or change in a software application. Change management within an IT organization encompasses tracking, managing, and implementing changes in software applications, thus classifying this commit under change management."
-    },
-    {
-      "data": {
-        "id": "JENKINS-049",
-        "type": "deployment",
-        "tool": "Jenkins",
-        "initiator": "CI Pipeline",
-        "related_to": "PayrollApp",
-        "timestamp": "2025-05-15T14:02:00Z",
-        "tags": [
-          "success",
-          "prod"
-        ]
-      },
-      "llm_reasoning": "The data object pertains to a Jenkins deployment initiated by a CI Pipeline, which is indicative of automated processes related to code or application updates. Change Management in IT involves the processes and tools used for managing changes, particularly in a software development context. Jenkins is a popular tool used in this capacity to automate aspects of software development and deployment, aligning directly with change management practices."
     }
   ],
   "Incident Response": [
