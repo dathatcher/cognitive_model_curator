@@ -40,5 +40,13 @@ class TeamsLoader:
                 "responsibilities": {
                     "owns_apps": ["PayrollApp"]
                 }
+            },
+            {
+                "name": "Compliance Team",
+                "roles": ["Compliance Stewards"],
+                "members": ["DA Thatcher"],
+                "responsibilities": {
+                    "owns_apps": []
+                }
             }
         ]
