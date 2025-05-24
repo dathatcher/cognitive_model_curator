@@ -12,7 +12,7 @@ class PeopleLoader:
             },
             {
                 "name": "DA Thatcher",
-                "role": "Technical Lead",
+                "role": "Compliance Repetitive",
                 "teams": [],
                 "uses_tools": []
             }
