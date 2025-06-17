@@ -4,4 +4,4 @@ py -m pip install --upgrade pip
 pip install -r requirements.txt
 pip install networkx
 set PYTHONPATH=.
-py cmc\run_pipeline.py
+python -m cmc.run_pipeline

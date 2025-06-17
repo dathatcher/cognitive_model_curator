@@ -62,94 +62,6 @@
         }
       },
       "llm_reasoning": "The data object 'Observability' involves roles and tools (e.g., 'Monitoring Engineer', 'Datadog') that are primarily centered around monitoring and managing IT infrastructure. The focus on owning and using monitoring tools aligns with infrastructure management responsibilities in an IT organization."
-    },
-    {
-      "data": {
-        "vlan_name": "V-45",
-        "subnet": "145.223.45.1",
-        "gateway": "145.223.45.1",
-        "broadcast": "145.223.45.100"
-      },
-      "llm_reasoning": "The data object contains network configuration details such as VLAN name, subnet, gateway, and broadcast address, which are all components of IT infrastructure related to network setup and management."
-    },
-    {
-      "data": {
-        "vlan_name": "V-46",
-        "subnet": "145.223.46.0",
-        "gateway": "145.223.46.11",
-        "broadcast": "145.223.45.98"
-      },
-      "llm_reasoning": "The data object contains details about network configuration, specifically VLAN settings and network subnet, which are part of an IT organization's network infrastructure."
-    },
-    {
-      "data": {
-        "hostname": "VM-PAY-01",
-        "environment": "prod",
-        "IP Address": "145.223.45.6",
-        "runs": [
-          "PayrollApp"
-        ],
-        "subnet": [
-          "V-45"
-        ]
-      },
-      "llm_reasoning": "The data object provides details related to the IT infrastructure, specifically a server or virtual machine, including hostname, environment, IP address, applications it runs, and its network details like subnet."
-    },
-    {
-      "data": {
-        "hostname": "VM-PAY-02",
-        "environment": "staging",
-        "IP Address": "145.223.46.0",
-        "runs": [
-          "PayrollApp"
-        ],
-        "subnet": [
-          "V-46"
-        ]
-      },
-      "llm_reasoning": "The data object describes elements characteristic of IT infrastructure, including details about a host machine (hostname, IP address) and network aspects (subnet). It essentially represents a server or virtual machine, typically categorized under infrastructure in an IT organization system model."
-    },
-    {
-      "data": {
-        "name": "DevOps",
-        "roles": [
-          "Site Reliability Engineer",
-          "Platform Engineer"
-        ],
-        "members": [
-          "Jane Doe"
-        ],
-        "responsibilities": {
-          "owns_tools": [
-            "Terraform",
-            "Jira"
-          ],
-          "monitors_apps": [
-            "PayrollApp"
-          ],
-          "integrates_with": [
-            "Slack"
-          ]
-        }
-      },
-      "llm_reasoning": "The data object describes the DevOps team, focusing on their roles and responsibilities related to tools they own, monitoring, and integration activities. These duties, especially holding critical tools like Terraform and monitoring applications, align strongly with the IT infrastructure management, as they underpin the support, development, maintenance, and integration of IT infrastructure."
-    },
-    {
-      "data": {
-        "name": "Observability",
-        "roles": [
-          "Monitoring Engineer"
-        ],
-        "members": [],
-        "responsibilities": {
-          "owns_tools": [
-            "Datadog"
-          ],
-          "monitors_apps": [],
-          "integrates_with": []
-        }
-      },
-      "llm_reasoning": "The data object describes 'Observability', which involves monitoring tools like 'Datadog' owned by a Monitoring Engineer. This falls under the Infrastructure category as it pertains to tools and systems that support the monitoring and operational health of the IT environment."
     }
   ],
   "Applications": [
@@ -234,73 +146,6 @@
         "relationships": {}
       },
       "llm_reasoning": "The data object with the name 'Checkly' and type 'Monitoring' suggests it is a tool or software used within the IT organization, falling under the 'Applications' category, which is used to manage or interact with various IT operations."
-    },
-    {
-      "data": {
-        "name": "PayrollApp",
-        "environments": [
-          "prod",
-          "staging"
-        ],
-        "deployed_on": [
-          "VM-PAY-01",
-          "VM-PAY-02"
-        ],
-        "owned_by": "HR Dev Team"
-      },
-      "llm_reasoning": "The data object represents a software application named 'PayrollApp', indicating it is part of the Applications distinction within the IT Organization. The details about its environments and deployment underscore its role as a software application."
-    },
-    {
-      "data": {
-        "name": "HR Dev Team",
-        "roles": [
-          "Application Developer"
-        ],
-        "members": [],
-        "responsibilities": {
-          "owns_apps": [
-            "PayrollApp"
-          ]
-        }
-      },
-      "llm_reasoning": "The data object represents a development team within the HR department, which focuses specifically on application development, as indicated by the stated role of team members and their ownership over applications such as 'PayrollApp'. This classifies the object primarily under 'Applications' since it directly involves the creation and management of software applications within the IT organization."
-    },
-    {
-      "data": {
-        "name": "Datadog",
-        "type": "Observability",
-        "relationships": {
-          "monitors_applications": [
-            "PayrollApp",
-            "BillingService"
-          ],
-          "used_by_teams": [
-            "Observability",
-            "DevOps"
-          ],
-          "integrates_with": [
-            "Jira",
-            "Slack"
-          ]
-        },
-        "systems": [
-          "MonitoringStack"
-        ],
-        "perspectives": {
-          "ObservabilityTeam": "Essential APM",
-          "DevOpsTeam": "Optional/experimental",
-          "SecurityTeam": "Not evaluated"
-        }
-      },
-      "llm_reasoning": "Datadog is classified as 'Applications' because it is described as an 'Observability' tool which typically falls under the application layer in IT organizations, being used to monitor and manage applications and services."
-    },
-    {
-      "data": {
-        "name": "Checkly",
-        "type": "Monitoring",
-        "relationships": {}
-      },
-      "llm_reasoning": "The object 'Checkly' described as a 'Monitoring' type indicates it is likely a tool or software used within the IT organization to monitor applications or systems. This aligns it with the 'Applications' distinction as it operates as an application within the IT environment."
     }
   ],
   "Data Streams": [],
@@ -341,43 +186,6 @@
         }
       },
       "llm_reasoning": "The data object describes a team (SRE) within the IT organization, outlining the role and specific people assigned, focused on their interaction with applications and tools, which fits best under Human Interactions."
-    },
-    {
-      "data": {
-        "name": "Jane Doe",
-        "role": "Site Reliability Engineer",
-        "teams": [
-          "SRE",
-          "DevOps"
-        ],
-        "uses_tools": [
-          "Terraform",
-          "Datadog",
-          "Jira"
-        ]
-      },
-      "llm_reasoning": "The data object describes a person within the IT organization along with their role, associated teams, and the tools they use. This broadly falls under Human Interactions as it pertains to roles within the organization, teams they interact with, and their involvements with various tools, stressing the human element in organizational processes."
-    },
-    {
-      "data": {
-        "name": "SRE",
-        "roles": [
-          "Site Reliability Engineer"
-        ],
-        "members": [
-          "Jane Doe"
-        ],
-        "responsibilities": {
-          "responds_to": [
-            "PayrollApp"
-          ],
-          "uses_tools": [
-            "Datadog",
-            "Terraform"
-          ]
-        }
-      },
-      "llm_reasoning": "The data object focuses on a team within the IT organization, detailing the roles, members, and specific responsibilities related to system tools and applications which fits the Human Interactions distinction involving interactions among team members and their tools within the organization."
     }
   ],
   "Security Protocols": [],
@@ -397,32 +205,6 @@
         }
       },
       "llm_reasoning": "The data object represents a 'Compliance Team' responsible for regulatory aspects within the IT organization. It emphasizes roles related to compliance, although it does not specify system components directly affected by compliance efforts. This leans heavily towards regulatory compliance involvement due to the nature of the team's identity and stated role."
-    },
-    {
-      "data": {
-        "name": "DA Thatcher",
-        "role": "Compliance Representative",
-        "teams": [
-          "Compliance Team"
-        ],
-        "uses_tools": []
-      },
-      "llm_reasoning": "The individual named 'DA Thatcher' is identified as a 'Compliance Representative' and is part of the 'Compliance Team'. This suggests they are involved in activities related to ensuring the IT organization adheres to legal and regulatory frameworks, which aligns directly with the 'Regulatory Compliance' distinction in the IT organization system model."
-    },
-    {
-      "data": {
-        "name": "Compliance Team",
-        "roles": [
-          "Compliance Stewards"
-        ],
-        "members": [
-          "DA Thatcher"
-        ],
-        "responsibilities": {
-          "owns_apps": []
-        }
-      },
-      "llm_reasoning": "The data object represents a 'Compliance Team' responsible for regulatory compliance tasks within the IT organization, indicated by their role title 'Compliance Stewards' and the context of their responsibilities."
     }
   ],
   "Change Management": [
@@ -502,73 +284,6 @@
         }
       },
       "llm_reasoning": "The term 'DevOps' and the described responsibilities such as owning tools like Terraform and Jira, and integrating with Slack, focus on continuous integration, continuous delivery, and efficient change management within IT operations. These are key elements in enabling quick and reliable changes in IT systems and applications."
-    },
-    {
-      "data": {
-        "id": "RELEASE-v1.2.0",
-        "type": "release",
-        "tool": "Jenkins",
-        "initiator": "CI Pipeline",
-        "related_to": "PayrollApp",
-        "timestamp": "2025-05-15T14:05:00Z",
-        "tags": [
-          "automated",
-          "prod",
-          "success"
-        ],
-        "sub_events": [
-          "JIRA-1234",
-          "COMMIT-a1b2c3",
-          "JENKINS-049"
-        ]
-      },
-      "llm_reasoning": "The data object represents information about a software release process, typically managed under the umbrella of Change Management in IT organizations. The presence of a 'release' type, triggered by a tool (Jenkins) in a CI pipeline, directly relates to how changes in the application (PayrollApp) are planned, executed, and tracked."
-    },
-    {
-      "data": {
-        "id": "JIRA-1234",
-        "type": "ticket",
-        "tool": "Jira",
-        "initiator": "Jane Doe",
-        "related_to": "PayrollApp",
-        "timestamp": "2025-05-15T13:22:00Z",
-        "tags": [
-          "bug",
-          "critical",
-          "deployment"
-        ]
-      },
-      "llm_reasoning": "The data object is a Jira ticket labeled as a bug related to a payroll application, indicative of an issue identified during or after a deployment process requiring management, tracking, and resolution of changes within the IT organization."
-    },
-    {
-      "data": {
-        "id": "COMMIT-a1b2c3",
-        "type": "commit",
-        "tool": "GitHub",
-        "initiator": "Jane Doe",
-        "related_to": "PayrollApp",
-        "timestamp": "2025-05-15T14:00:00Z",
-        "tags": [
-          "feature",
-          "auth"
-        ]
-      },
-      "llm_reasoning": "The data object represents a commit in GitHub, initiated by an individual, tagged with 'feature' and 'auth'. This indicates it is part of the development and version control process, which falls under Change Management in an IT organization, handling software updates, feature additions, and codebase maintenance."
-    },
-    {
-      "data": {
-        "id": "JENKINS-049",
-        "type": "deployment",
-        "tool": "Jenkins",
-        "initiator": "CI Pipeline",
-        "related_to": "PayrollApp",
-        "timestamp": "2025-05-15T14:02:00Z",
-        "tags": [
-          "success",
-          "prod"
-        ]
-      },
-      "llm_reasoning": "The data object relates to a deployment handled by Jenkins, indicating an action within change management processes. Deployments, especially in production environments, are central to managing changes in an IT organization's applications and systems."
     }
   ],
   "Incident Response": [],
