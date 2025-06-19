@@ -18,7 +18,15 @@ class GitHubLoader:
             return []
 
         url = f"https://api.github.com/repos/{self.repo_owner}/{self.repo_name}/commits"
+        print("📡 Final URL:", url)
+        print("📦 Headers used:")
+        for k, v in self.headers.items():
+            print(f"  {k}: {v[:10]}..." if k == "Authorization" else f"  {k}: {v}")
+
         response = requests.get(url, headers=self.headers)
+        print("🔁 Status Code:", response.status_code)
+        print("🔎 Response Text (start):", response.text[:200])
+
         if response.status_code != 200:
             print(f"❌ Failed to fetch commits: {response.status_code} {response.reason}")
             return []

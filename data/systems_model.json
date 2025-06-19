@@ -7,7 +7,7 @@
         "gateway": "145.223.45.1",
         "broadcast": "145.223.45.100"
       },
-      "llm_reasoning": "The data object includes details about network configuration such as VLAN name, subnet, gateway, and broadcast address, which are typically associated with the IT infrastructure necessary for network segmentation and communication within an organization."
+      "llm_reasoning": "The data object contains information describing a network configuration, specifically naming a VLAN along with its subnet, gateway, and broadcast address, which are all components typically associated with IT infrastructure."
     },
     {
       "data": {
@@ -16,7 +16,7 @@
         "gateway": "145.223.46.11",
         "broadcast": "145.223.45.98"
       },
-      "llm_reasoning": "The data object includes network configuration details such as VLAN name, subnet, gateway, and broadcast address, which are all components of network infrastructure within an IT organization."
+      "llm_reasoning": "The data object includes details such as VLAN names, subnets, gateways, and broadcast addresses, which are all components used to define network infrastructure within an IT organization."
     },
     {
       "data": {
@@ -30,7 +30,7 @@
           "V-45"
         ]
       },
-      "llm_reasoning": "The data object contains information about a virtual machine, specifically its hostname, IP address, associated applications, and network information (subnet), which are all integral parts of IT infrastructure management."
+      "llm_reasoning": "The data object contains details related to hardware or virtual resources such as hostname, IP Address, environment, and subnet, all of which are attributes that define the underlying infrastructure supporting applications like the mentioned 'PayrollApp'."
     },
     {
       "data": {
@@ -44,7 +44,7 @@
           "V-46"
         ]
       },
-      "llm_reasoning": "The data object includes physical and network attributes such as a hostname, IP address, and subnet, which are components typically associated with IT infrastructure as they relate to the underlying hardware or virtual environments that support the operation of applications."
+      "llm_reasoning": "The data object includes details such as hostname, IP address, and subnet, which are all related to the IT infrastructure setup, particularly concerning how computer systems are networked and configured within an organization."
     },
     {
       "data": {
@@ -61,7 +61,7 @@
           "integrates_with": []
         }
       },
-      "llm_reasoning": "The observability object, which includes tools like Datadog and is linked to the role of Monitoring Engineer, is typically related to the infrastructure of an IT organization. These tools are essential for monitoring and managing IT infrastructure, which supports this classification."
+      "llm_reasoning": "The observability context involves managing 'Monitoring Engineer' roles with responsibilities that include ownership of tools like 'Datadog,' which implies a focus on monitoring and managing IT infrastructure to ensure system performance and reliability."
     }
   ],
   "Applications": [
@@ -78,7 +78,7 @@
         ],
         "owned_by": "HR Dev Team"
       },
-      "llm_reasoning": "The data object describes 'PayrollApp' including its deployment environments and the virtual machines it is deployed on, indicating it is a software application managed by an IT organization."
+      "llm_reasoning": "The data object named 'PayrollApp' directly relates to an application used within the IT organization. Attributes like 'environments' and 'deployed_on' indicate its role within application-hosting infrastructure, and 'owned_by' specifies the team responsible, aligning it under the Applications distinction."
     },
     {
       "data": {
@@ -93,7 +93,7 @@
           ]
         }
       },
-      "llm_reasoning": "The data object is focused on a team in an IT organization whose primary role is to develop applications, as indicated by their responsibilities including ownership of specific applications like 'PayrollApp'. Therefore, it's best classified under 'Applications' which captures the essence of their function within the IT system."
+      "llm_reasoning": "The data object describes the HR Dev Team, specifically noting their role in owning applications such as 'PayrollApp'. This responsibility ties directly to the Applications distinction within the IT Organization system model, focusing on development, management, and maintenance of software applications."
     },
     {
       "data": {
@@ -122,7 +122,7 @@
           "SecurityTeam": "Not evaluated"
         }
       },
-      "llm_reasoning": "The data object 'Datadog' is identified as an 'Observability' tool, which falls under the category of applications within an IT organization. It monitors other applications and is used by multiple teams, indicating its integration and utility at the application level, supporting the classification under 'Applications'."
+      "llm_reasoning": "The data object 'Datadog' is classified under 'Applications' as it is described as an 'Observability' tool monitoring specific applications (e.g., PayrollApp, BillingService), which directly relates to application management within IT systems. Additionally, it integrates with other applications like Jira and Slack, emphasizing its role within the application ecosystem of the IT organization."
     },
     {
       "data": {
@@ -130,7 +130,7 @@
         "type": "Monitoring",
         "relationships": {}
       },
-      "llm_reasoning": "The data object 'Checkly' is described as a type of 'Monitoring', which implies it is an application used for monitoring resources or activities within the IT organization. Applications encompass software tools and systems used to perform specific tasks or functions."
+      "llm_reasoning": "The data object named 'Checkly' is described as a 'Monitoring' type, which aligns with the Applications distinction within an IT Organization because it suggests a software application designed for monitoring purposes."
     }
   ],
   "Data Streams": [],
@@ -149,7 +149,7 @@
           "Jira"
         ]
       },
-      "llm_reasoning": "The data object represents an individual 'Jane Doe' with a specific role and team affiliations within the IT organization which highlights her involvement in interactions related to her designated responsibilities and the tools she uses."
+      "llm_reasoning": "The data describes a person, specifically their job role and team memberships within the IT organization, which relates directly to how humans interact with the information systems and each other to facilitate IT functions."
     }
   ],
   "Security Protocols": [],
@@ -164,7 +164,7 @@
         ],
         "uses_tools": []
       },
-      "llm_reasoning": "The data object represents 'DA Thatcher', a Compliance Representative, indicating involvement in ensuring the IT organization adheres to laws and regulations. Hence, it fits under 'Regulatory Compliance'."
+      "llm_reasoning": "The data object describes a role specifically involved in compliance, indicating involvement in regulatory compliance activities within the IT organization."
     },
     {
       "data": {
@@ -179,7 +179,7 @@
           "owns_apps": []
         }
       },
-      "llm_reasoning": "The data object represents the Compliance Team within an IT organization, responsible for regulatory compliance activities, as indicated by their roles and responsibilities focused on compliance but not owning any specific applications."
+      "llm_reasoning": "The data object describes a 'Compliance Team' focused on compliance. This indicates they are primarily concerned with managing and adhering to regulations, which aligns with the 'Regulatory Compliance' distinction within the IT organization."
     }
   ],
   "Change Management": [
@@ -202,7 +202,7 @@
           "JENKINS-049"
         ]
       },
-      "llm_reasoning": "The data object describes a software release (RELEASE-v1.2.0) which includes details about the release tool (Jenkins), initiator (CI Pipeline), and related software application (PayrollApp). The event is identified as part of automation processes in the IT environment. Change management is the relevant classification because it involves processes and tools for managing changes in IT services and applications, of which software releases are a core component."
+      "llm_reasoning": "The data object describes a release event, initiated by a CI (Continuous Integration) Pipeline using Jenkins, targeted for a Payroll Application. This aligns closely with change management practices within an IT organization, as it deals with managing changes to software applications, in this instance deploying a new software version."
     },
     {
       "data": {
@@ -218,7 +218,7 @@
           "deployment"
         ]
       },
-      "llm_reasoning": "The data object represents a ticket issued in Jira, a tool used for tracking and managing changes. The tags suggest it pertains to a critical bug related to a deployment, indicating it is part of managing changes in the application lifecycle."
+      "llm_reasoning": "The data object represents a ticket in Jira, a tool used for tracking issues and managing changes in software applications. The tags include 'deployment', indicating this ticket is likely involved in managing changes or updates to an application, specifically related to 'PayrollApp'. This aligns it with the Change Management distinction within an IT Organization system."
     },
     {
       "data": {
@@ -233,7 +233,7 @@
           "auth"
         ]
       },
-      "llm_reasoning": "The data object represents a software commit on GitHub, which is part of version control and thus falls under change management in an IT organization context. It includes information about the initiator, the associated application, and the nature of the commit ('feature', 'auth'), all of which are elements managed in the process of software development and change management."
+      "llm_reasoning": "The data object represents a commit in GitHub related to the PayrollApp. It involves a version control action initiated by an individual, indicating a modification or update in the application, which is a part of change management processes within an IT organization."
     },
     {
       "data": {
@@ -248,7 +248,547 @@
           "prod"
         ]
       },
-      "llm_reasoning": "The data object relates to a deployment action initiated by a CI (Continuous Integration) pipeline tool (Jenkins) for a specific application (PayrollApp), indicating a process of managing changes in the IT environment. This aligns with change management practices, which typically involve the structured transition of IT systems, including applications and configurations, from development to production environments."
+      "llm_reasoning": "The data object describes a deployment process handled through a tool (Jenkins) within an IT organization, typically under the scope of change management practices involving updates or changes to applications or systems."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-2257e01",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "dathatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-06-17T22:08:32Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object represents a commit in GitHub, which is a part of version control practices and falls under Change Management as it is a key activity in managing changes in the software development process."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-3d50028",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "dathatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-06-17T21:26:03Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object specifically captures a commit event in GitHub, which is integral to tracking changes in codebases and managing version control, a core aspect of Change Management in IT organizations."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-53947ae",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "dathatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-25T11:02:40Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object describes a commit on GitHub which indicates a change in the version control system. This directly relates to the Change Management function within an IT organization, as it is essential for managing, documenting, and auditing changes to the software or systems."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-b89f0d8",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "dathatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-25T10:59:25Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object describes a GitHub commit, which is an update or change to the codebase. Tracking and managing such commits are essential activities in change management processes to ensure coordinated and systematic handling of changes in an IT environment."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-ec8e18e",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "dathatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-25T10:46:06Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The commit in the data object is directly related to the processes and activities involved in managing changes within the system, especially within an IT organization's codebase or configurations."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-1e5ae69",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "dathatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-24T16:42:50Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object represents a GitHub commit, which is a version control activity related to managing and documenting changes in software development projects. Managing such commits is integral to the processes that govern how changes are planned, tested, implemented, and tracked within an IT organization, falling under the umbrella of Change Management."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-8acf374",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "dathatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-24T16:33:36Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object represents a GitHub commit, which is directly related to the processes and activities of managing changes in the software, such as source code revisions. Change Management in an IT organization includes tracking and controlling changes in the software or applications, aligning with the practices captured in the commit data from GitHub."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-b092993",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "dathatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-24T16:02:07Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object describes a commit event in GitHub, indicating a change to the application's codebase. This activity is directly related to Change Management as it involves modifications and version control, which are crucial for tracking changes, maintaining stability, and ensuring continuous integration and deployment in an IT organization."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-4b232ae",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "dathatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-24T15:58:38Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object describes a GitHub commit event, which is part of version control and software development processes that are fundamental to managing changes in an IT organization's applications and infrastructure."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-fbe1650",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "dathatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-24T15:58:14Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object contains information about a GitHub commit, which is directly related to change management processes in an IT organization, as it involves tracking changes in the codebase, contributors, and managing version control."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-7514b48",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "dathatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-24T15:46:08Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object represents a GitHub commit event, which is part of version control and code changes tracking. Such events are integral to change management processes in an IT organization, as they are used to monitor and manage changes to applications and infrastructure within the organization."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-2b97e10",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "dathatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-24T15:20:52Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object describes a GitHub commit event, which is a direct aspect of how changes are managed and documented in software development. It tracks modifications made to codebases, indicating control and logs of changes within IT systems."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-03adf19",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "dathatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-24T15:20:07Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object represents a GitHub commit, which is an update or change in a software repository. Committing changes is a fundamental activity in software version control, aligning with Change Management processes in IT organizations."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-45be7be",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-23T20:03:43Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object involves a GitHub commit event, which is intrinsic to the version control and handling of application sources and updates, activities central to Change Management within an IT organization. Managing these commits aids in tracking changes and understanding version history, which are core aspects of controlling and planning modifications in software projects."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-47cae2f",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-23T19:57:38Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object details a commit event in GitHub, which involves an update or alteration to the applications' codebase. This activity is directly linked to the Change Management process in the IT organization context, governing how modifications to the system are managed and documented."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-3e73c77",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-22T11:02:57Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object details a GitHub commit, which is an action integral to software version control\u2014an essential aspect of Change Management processes in IT organizations. It assists in tracking modifications in software development and facilitates team collaboration and project evolution."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-ae678a6",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-21T14:58:37Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object represents a GitHub commit, which is instrumental in version control and tracking modifications in software development. These activities are critical components of Change Management within an IT organization, dealing with the management of changes to IT services, including application updates and configurations."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-879ea16",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-21T13:37:11Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object indicates activity related to a GitHub commit, which is a key component in software Change Management, indicating changes in code or configuration in the IT environment. The object reflects how such events are tracked and managed within an IT organization, fitting well within the Change Management distinction."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-04a4a78",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-21T12:14:40Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object details a commit event from GitHub, indicative of code or configuration changes typically managed within Change Management protocols in an IT organization. It includes metadata such as the commit identifier, author, and timestamp, which are integral to tracking and managing changes in IT systems and software development processes."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-646809e",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-21T11:18:53Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object represents a commit operation in GitHub, which is integral to the version control and change management processes in an IT organization. The inclusion of metadata like the author, timestamp, and commit ID directly supports activities that track modifications, manage project versions, and control changes in the software development lifecycle."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-ae8557f",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-20T13:09:59Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object documents a commit in GitHub, which is a form of version control and thus a key activity in managing changes in software development projects within an IT organization."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-0d1abfd",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-20T12:17:31Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object pertains to a GitHub commit, which is associated with version control and the process changes in an IT organization's codebase. This directly relates to Change Management, as it involves tracking and handling updates in software applications and systems."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-2711065",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-19T20:35:43Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object details a GitHub commit, which is pertinent to tracking changes and version control in software, key activities in Change Management within an IT organization. The presence of a commit initiator and timestamp supports the monitoring and management of changes to applications or systems."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-b68d5ae",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-19T17:44:20Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object corresponds to a commit in GitHub, which is linked directly to activities involving the tracking of changes in code, an essential component of Change Management in IT organizations. This ensures that every code alteration is monitored and managed systematically."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-04ab40b",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-18T18:55:11Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object describes a commit event in GitHub, which is an integral part of version control and managing changes within software development processes in an IT organization. This aligns directly with Change Management, as it involves handling updates and iterations in applications or systems."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-e122dd3",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-17T12:56:03Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object details a GitHub commit, which is a form of version control and contributes to managing changes in the development process, aligning it well with Change Management activities within an IT organization."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-f668fad",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-17T12:06:07Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object describes a commit event on GitHub, which involves modifying application code or configurations. These activities are integral to Change Management as they entail tracking, managing, and implementing changes in the IT environment to ensure stability and continuous integration."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-af14dca",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-16T21:27:02Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object describes a commit event in a GitHub repository, which is a crucial part of version control systems used in Change Management processes. It includes information about the author, exact time of the commit, and associated metadata, supporting the management of application changes and maintenance within an IT organization."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-8d34507",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-16T21:26:36Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "This data object details a GitHub commit, which is integral to Version Control processes, a key component of Change Management in IT organizations. It includes information about the commit's author, timestamp, and source, which are relevant for tracking changes, reviewing code, and managing deployments."
+    },
+    {
+      "data": {
+        "data": {
+          "id": "COMMIT-8b58f96",
+          "type": "commit",
+          "tool": "GitHub",
+          "initiator": "David A. Thatcher",
+          "related_to": "Unknown",
+          "timestamp": "2025-05-16T21:26:04Z",
+          "tags": [
+            "github",
+            "commit"
+          ]
+        },
+        "llm_reasoning": "This data object represents a GitHub commit event captured via the GitHub API, containing essential metadata such as author, timestamp, and repository source, and is relevant to Change Management activities within an IT organization."
+      },
+      "llm_reasoning": "The data object details a GitHub commit event, which is a version control activity integral to the processes of managing changes in an IT development environment. The commit records modifications to code or content, showing changes being tracked, which underpins effective change management strategies within IT organizations."
     },
     {
       "data": {
@@ -273,7 +813,7 @@
           ]
         }
       },
-      "llm_reasoning": "The DevOps team, listed with roles such as Site Reliability Engineer and Platform Engineer, typically focuses on the automation and integration of processes to improve deployment, monitoring, and the operational health of applications. The responsibilities outlined involve tools ownership and the integration with applications that are central to managing changes in IT systems efficiently."
+      "llm_reasoning": "DevOps primarily focuses on practices, processes, and tools that facilitate collaboration across teams in order to improve and expedite the delivery of software and updates. This directly aligns with the practices and principles of Change Management in IT organizations, focusing on ownership of tools and the responsibility for monitoring applications, which are critical in managing changes to IT services and infrastructure."
     }
   ],
   "Incident Response": [
@@ -296,9 +836,50 @@
           ]
         }
       },
-      "llm_reasoning": "The data object describes a team (SRE) whose responsibilities involve using specific tools to respond to applications, indicative of a role focused on maintaining system reliability and handling issues likely related to incident response."
+      "llm_reasoning": "The data object describes a Site Reliability Engineer (SRE) team, focused primarily on reliability and rapid response to issues, which aligns closely with incident response processes within an IT organization."
     }
   ],
-  "relationships": [],
-  "NOT_DEFINED": []
+  "NOT_DEFINED": [],
+  "relationships": [
+    {
+      "type": "runs",
+      "source": "VM-PAY-01",
+      "target": "PayrollApp"
+    },
+    {
+      "type": "runs",
+      "source": "VM-PAY-02",
+      "target": "PayrollApp"
+    },
+    {
+      "type": "deployed_on",
+      "source": "PayrollApp",
+      "target": "VM-PAY-01"
+    },
+    {
+      "type": "deployed_on",
+      "source": "PayrollApp",
+      "target": "VM-PAY-02"
+    },
+    {
+      "type": "owns",
+      "source": "HR Dev Team",
+      "target": "PayrollApp"
+    },
+    {
+      "type": "uses_tool",
+      "source": "Jane Doe",
+      "target": "Terraform"
+    },
+    {
+      "type": "uses_tool",
+      "source": "Jane Doe",
+      "target": "Datadog"
+    },
+    {
+      "type": "uses_tool",
+      "source": "Jane Doe",
+      "target": "Jira"
+    }
+  ]
 }

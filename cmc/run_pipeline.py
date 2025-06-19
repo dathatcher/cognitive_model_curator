@@ -1,4 +1,3 @@
-
 import os
 import importlib
 import inspect
@@ -30,16 +29,21 @@ def run_ingestion_pipeline():
         for name, obj in inspect.getmembers(module):
             if inspect.isclass(obj) and name.endswith("Loader"):
                 print(f"📥 Running loader: {name}")
-                loader_instance = obj()
+                # Special handling for GitHubLoader to pass repo context
+                if name == "GitHubLoader":
+                    print("⚙️ Injecting GitHub repo settings into GitHubLoader")
+                    loader_instance = obj(repo_owner="dathatcher", repo_name="cognitive_model_curator")
+                else:
+                    loader_instance = obj()
                 entities = loader_instance.load()
                 for entity in entities:
                     add_entity_to_model(entity, MODEL_PATH, context=SYSTEM_CONTEXT)
 
     print(f"✅ All data ingested and classified into {MODEL_PATH}")
-    
-processor = MentalModelPostProcessor()
-output_path = processor.post_process_and_save()
-print(f"📦 Post-processed mental model saved to: {output_path}")
+
+    processor = MentalModelPostProcessor()
+    output_path = processor.post_process_and_save()
+    print(f"📦 Post-processed mental model saved to: {output_path}")
 
 if __name__ == "__main__":
     run_ingestion_pipeline()
