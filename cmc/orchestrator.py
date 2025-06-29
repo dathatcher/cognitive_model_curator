@@ -21,7 +21,7 @@ def build_mental_model():
     }
 
     # Load GitHub events (e.g., PR commits) from the specified repository
-    github_loader = GitHubLoader(repo_owner="dathacher", repo_name="wisdom-test-app")
+    github_loader = GitHubLoader(repo_owner="dathatcher", repo_name="wisdom-test-app")
     github_events = github_loader.load()
 
     # Merge GitHub events into the Change Management list

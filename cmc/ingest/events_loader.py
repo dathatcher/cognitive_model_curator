@@ -22,23 +22,5 @@ class EventsLoader:
                 "related_to": "PayrollApp",
                 "timestamp": "2025-05-15T13:22:00Z",
                 "tags": ["bug", "critical", "deployment"]
-            },
-            {
-                "id": "COMMIT-a1b2c3",
-                "type": "commit",
-                "tool": "GitHub",
-                "initiator": "Jane Doe",
-                "related_to": "PayrollApp",
-                "timestamp": "2025-05-15T14:00:00Z",
-                "tags": ["feature", "auth"]
-            },
-            {
-                "id": "JENKINS-049",
-                "type": "deployment",
-                "tool": "Jenkins",
-                "initiator": "CI Pipeline",
-                "related_to": "PayrollApp",
-                "timestamp": "2025-05-15T14:02:00Z",
-                "tags": ["success", "prod"]
             }
         ]

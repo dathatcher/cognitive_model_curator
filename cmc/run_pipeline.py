@@ -5,11 +5,9 @@ from pathlib import Path
 from cmc.llm_classifier import add_entity_to_model
 from cmc.model_post_processor import MentalModelPostProcessor
 
-# Path to the mental model to update
 MODEL_PATH = "data/systems_model.json"
 SYSTEM_CONTEXT = "IT Organization"
 
-# Dynamically import all loader modules from cmc.ingest
 def discover_loaders():
     loader_dir = Path("cmc/ingest")
     loader_modules = []
@@ -29,10 +27,9 @@ def run_ingestion_pipeline():
         for name, obj in inspect.getmembers(module):
             if inspect.isclass(obj) and name.endswith("Loader"):
                 print(f"📥 Running loader: {name}")
-                # Special handling for GitHubLoader to pass repo context
                 if name == "GitHubLoader":
                     print("⚙️ Injecting GitHub repo settings into GitHubLoader")
-                    loader_instance = obj(repo_owner="dathatcher", repo_name="cognitive_model_curator")
+                    loader_instance = obj(repo_owner="dathatcher", repo_name="wisdom-test-app")  # ✅ FIXED
                 else:
                     loader_instance = obj()
                 entities = loader_instance.load()
