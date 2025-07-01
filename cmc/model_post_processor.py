@@ -22,6 +22,7 @@ class MentalModelPostProcessor:
         tools_by_name = {}
         teams_by_name = {}
         people_by_name = {}
+        prs_by_name = {}
 
         # Index relevant items
         for category, entries in self.model.items():
@@ -38,6 +39,8 @@ class MentalModelPostProcessor:
                         tools_by_name[data["name"]] = data
                     elif category == "Teams":
                         teams_by_name[data["name"]] = data
+                    elif data["name"].startswith("PR-"):
+                        prs_by_name[data["name"]] = data
                 if "hostname" in data:
                     hosts_by_name[data["hostname"]] = data
 
@@ -86,6 +89,17 @@ class MentalModelPostProcessor:
                             "source": data.get("name", "unknown_person"),
                             "target": tool
                         })
+
+                if data.get("type") == "workflow_run":
+                    workflow_id = data.get("id")
+                    related_to = data.get("related_to")
+                    for pr_name in prs_by_name:
+                        if related_to == prs_by_name[pr_name].get("related_to"):
+                            relationships.append({
+                                "type": "deploys",
+                                "source": workflow_id,
+                                "target": prs_by_name[pr_name]["id"]
+                            })
 
         return relationships
 

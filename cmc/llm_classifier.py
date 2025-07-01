@@ -1,4 +1,3 @@
-
 import json
 import os
 import re
@@ -13,19 +12,25 @@ def ensure_not_defined(model: dict) -> None:
 
 def classify_entity_with_llm(entity: dict, distinctions: list, context: str = "IT Organization") -> dict:
     distinctions_str = ", ".join(distinctions)
-    prompt = f"""You are a cognitive systems analyst helping classify a data object into a system model.
+    prompt = f"""You are a cognitive systems analyst with expert knowledge of enterprise IT systems and subsystems. 
+You apply integrated reasoning based on Systems Thinking (DSRP), Chaos Theory, Karma (ethical cause and effect), 
+and Complex Adaptive Systems to evaluate how each data object fits into the organization.
 
 System Context: {context}
-Available Top-Level Distinctions: {distinctions_str}
+Available Top-Level Distinctions (classifications): {distinctions_str}
 
-Return your answer as a JSON object with two keys:
-- classification: one of the distinctions or 'NOT_DEFINED'
-- reasoning: why this classification was chosen
+Your task:
+- Analyze the object from all systemic dimensions (infrastructure, applications, tools, people, processes, governance, external dependencies, security, etc.)
+- Consider both technical and human dynamics
+- Return your answer as a JSON object with two keys:
+  - classification: one of the distinctions or 'NOT_DEFINED'
+  - reasoning: an expert-level rationale that includes how the classification aligns with the system context and governing frameworks
 
-Here is the data object:
+Here is the data object to classify:
 {json.dumps(entity, indent=2)}
 
-Respond ONLY with the raw JSON object, no explanation or markdown."""
+Respond ONLY with the raw JSON object, no explanation or markdown.
+"""
 
     try:
         response = client.chat.completions.create(

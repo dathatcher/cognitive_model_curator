@@ -1,4 +1,4 @@
-### ✅ Updated `GitHubLoader` with PR-to-commit traceability and source branch linkage
+### ✅ Updated GitHubLoader with commit, PR, and workflow run support
 import os
 import requests
 import json
@@ -49,12 +49,6 @@ class GitHubLoader:
         print(f"✅ Loaded {len(events)} commits")
         return events
 
-    def extract_jira_ticket(self, title: str) -> str:
-        parts = title.strip().split()
-        if parts and "-" in parts[0]:
-            return parts[0].strip()
-        return title.strip()
-
     def fetch_pull_requests(self) -> List[dict]:
         url = f"https://api.github.com/repos/{self.repo_owner}/{self.repo_name}/pulls?state=all"
         print("📡 Fetching pull requests from:", url)
@@ -75,14 +69,10 @@ class GitHubLoader:
             pr_state = pr["state"]
 
             pr_commit_resp = requests.get(pr_commits_url, headers=self.headers)
-            if pr_commit_resp.status_code != 200:
-                print(f"⚠️ Failed to fetch commits for PR #{pr_number}")
-                pr_commit_shas = []
-            else:
+            pr_commit_shas = []
+            if pr_commit_resp.status_code == 200:
                 pr_commit_data = pr_commit_resp.json()
                 pr_commit_shas = [f"COMMIT-{c['sha'][:7]}" for c in pr_commit_data]
-
-            related_to = pr_source_branch
 
             pr_event = {
                 "data": {
@@ -91,7 +81,7 @@ class GitHubLoader:
                     "type": "pull_request",
                     "tool": "GitHub",
                     "initiator": pr["user"]["login"],
-                    "related_to": related_to,
+                    "related_to": pr_source_branch,
                     "timestamp": pr["created_at"],
                     "tags": ["github", "pull_request", pr_state],
                     "sub_events": pr_commit_shas,
@@ -108,6 +98,44 @@ class GitHubLoader:
         print(f"✅ Loaded {len(pr_events)} pull requests with linked commits")
         return pr_events
 
+    def fetch_workflow_runs(self) -> List[dict]:
+        url = f"https://api.github.com/repos/{self.repo_owner}/{self.repo_name}/actions/runs"
+        print("📡 Fetching GitHub Actions workflow runs from:", url)
+        response = requests.get(url, headers=self.headers)
+
+        if response.status_code != 200:
+            print(f"❌ Failed to fetch workflow runs: {response.status_code} {response.text}")
+            return []
+
+        runs = response.json().get("workflow_runs", [])
+        workflow_events = []
+
+        for run in runs:
+            event = {
+                "data": {
+                    "id": f"ACTION-{run['id']}",
+                    "name": run.get("name") or f"Workflow-{run['id']}",
+                    "type": "workflow_run",
+                    "tool": "GitHub Actions",
+                    "initiator": run.get("actor", {}).get("login", "Unknown"),
+                    "related_to": run.get("head_branch", "unknown-branch"),
+                    "timestamp": run.get("created_at"),
+                    "tags": [
+                        "github", "actions", run.get("status", "unknown"), run.get("conclusion", "unknown")
+                    ],
+                    "_force_class": "Change Management"
+                },
+                "llm_reasoning": (
+                    "This object represents a GitHub Actions workflow run. It includes metadata like status, "
+                    "conclusion, actor, and related PR branch. These automated deployments are part of formal change "
+                    "control and CI/CD processes in IT organizations."
+                )
+            }
+            workflow_events.append(event)
+
+        print(f"✅ Loaded {len(workflow_events)} workflow runs")
+        return workflow_events
+
     def load(self) -> List[dict]:
         if not self.token:
             print("❌ GitHub token not found in environment variable 'GITHUB_TOKEN'")
@@ -115,9 +143,10 @@ class GitHubLoader:
 
         commits = self.fetch_commits()
         pull_requests = self.fetch_pull_requests()
+        workflows = self.fetch_workflow_runs()
 
-        all_events = commits + pull_requests
-        print("🧪 Combined commit and PR events:")
+        all_events = commits + pull_requests + workflows
+        print("🧪 Combined commit, PR, and Actions events:")
         print(json.dumps(all_events, indent=2))
 
         return all_events
