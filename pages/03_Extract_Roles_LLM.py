@@ -62,9 +62,9 @@ Please extract both formal (e.g., written policy, technical requirement) and inf
 For each rule:
 - Give it a short, clear **name** (e.g., "MFA Requirement", "Curfew Policy")
 - Write a 1-2 sentence **description**
-- Suggest related distinctions from this list: {distinctions}
+- Choose related distinctions **only** from this list (do not invent others): {distinctions}
 
-Output your response as a **strict JSON array**, like:
+Return your response as a **strict JSON array** in this format:
 [
   {{
     "name": "...",
@@ -72,7 +72,7 @@ Output your response as a **strict JSON array**, like:
     "related_to": ["...", "..."]
   }}
 ]
-Do not include explanations or extra text.
+Do not include explanations or markdown.
 
 Text:
 \"\"\"{raw_text}\"\"\"
@@ -105,7 +105,6 @@ Text:
                 rule["distinction"] = "Rules"
                 rule["source"] = "LLM Extraction"
 
-            # ✅ Ensure Rules key exists
             if "Rules" not in model_data:
                 model_data["Rules"] = []
 
