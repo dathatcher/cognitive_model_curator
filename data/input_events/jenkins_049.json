@@ -1,9 +1,0 @@
-{
-  "build_id": "049",
-  "release_tag": "v1.2.0",
-  "environment": "prod",
-  "application": "PayrollApp",
-  "timestamp": "2024-05-27T15:10:00Z",
-  "triggered_by": "CI Pipeline",
-  "related_event_ids": ["COMMIT-a1b2c3d", "COMMIT-a9z8x7y"]
-}

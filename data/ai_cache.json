@@ -1,3 +1,0 @@
-{
-  "250e6e86e549537ae3949c07c30b9a92ded9609520a5ab080561633df11ffb9b": "{\n  \"intention\": \"Neutral\",\n  \"policy_violations\": [\"Does not reference a Jira ticket\"],\n  \"justification\": \"The commit message is short and does not reference a Jira ticket as required by the commit policy.\"\n}"
-}

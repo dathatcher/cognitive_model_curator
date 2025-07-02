@@ -1,9 +1,0 @@
-{
-  "ticket_id": "JIRA-1234",
-  "summary": "Fixing payroll main interest calculation",
-  "assignee": "Jane Doe",
-  "status": "In Progress",
-  "priority": "High",
-  "component": "PayrollApp",
-  "created": "2024-05-25T10:15:00Z"
-}
