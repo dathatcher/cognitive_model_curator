@@ -1,0 +1,364 @@
+{
+  "Roles": [
+    {
+      "name": "Mother",
+      "description": "Wife, Mother and works full time",
+      "related_to": [
+        "Boundaries",
+        "Stress Points"
+      ],
+      "cas_type": "Family Structure",
+      "distinction": "Roles",
+      "source": "Manual Entry"
+    },
+    {
+      "name": "Father",
+      "description": "Father, Husband",
+      "related_to": [
+        "Values"
+      ],
+      "cas_type": "Family Structure",
+      "distinction": "Roles",
+      "source": "Manual Entry"
+    },
+    {
+      "name": "Mother",
+      "description": "Takes primary responsibility for caregiving and discipline within the household.",
+      "relatedDistinctions": [
+        "Roles",
+        "Patterns of Behavior",
+        "Rules"
+      ],
+      "cas_type": "Family Structure",
+      "distinction": "Roles",
+      "source": "LLM Extraction"
+    },
+    {
+      "name": "Father",
+      "description": "Frequently absent, contributing less to the daily family management and engagement.",
+      "relatedDistinctions": [
+        "Roles",
+        "Stress Points"
+      ],
+      "cas_type": "Family Structure",
+      "distinction": "Roles",
+      "source": "LLM Extraction"
+    },
+    {
+      "name": "Teenage Daughter",
+      "description": "Shows increasing resistance to household rules as part of her developmental stage.",
+      "relatedDistinctions": [
+        "Roles",
+        "Patterns of Behavior",
+        "Stress Points"
+      ],
+      "cas_type": "Family Structure",
+      "distinction": "Roles",
+      "source": "LLM Extraction"
+    },
+    {
+      "name": "Grandmother",
+      "description": "Provides emotional support to the family, helping to stabilize the family dynamic.",
+      "relatedDistinctions": [
+        "Roles",
+        "Support Systems"
+      ],
+      "cas_type": "Family Structure",
+      "distinction": "Roles",
+      "source": "LLM Extraction"
+    }
+  ],
+  "Values": [],
+  "Rules": [
+    {
+      "name": "Curfew Policy",
+      "description": "The daughter is required to be home by 10pm.",
+      "related_to": [
+        "Boundaries",
+        "Patterns of Behavior"
+      ],
+      "cas_type": "Family Structure",
+      "distinction": "Rules",
+      "source": "LLM Extraction"
+    },
+    {
+      "name": "No Phones at Dinner Rule",
+      "description": "Phones are not allowed at the dinner table for any family member.",
+      "related_to": [
+        "Values",
+        "Patterns of Behavior"
+      ],
+      "cas_type": "Family Structure",
+      "distinction": "Rules",
+      "source": "LLM Extraction"
+    },
+    {
+      "name": "Chore Completion Rule",
+      "description": "Screen time privileges are contingent upon completion of assigned chores.",
+      "related_to": [
+        "Rules",
+        "Support Systems"
+      ],
+      "cas_type": "Family Structure",
+      "distinction": "Rules",
+      "source": "LLM Extraction"
+    },
+    {
+      "name": "Decision Making Hierarchy",
+      "description": "The mother has the ultimate authority over decisions related to schooling.",
+      "related_to": [
+        "Roles",
+        "Intergenerational Feedback"
+      ],
+      "cas_type": "Family Structure",
+      "distinction": "Rules",
+      "source": "LLM Extraction"
+    },
+    {
+      "name": "Homework Policy",
+      "description": "Children are required to engage in at least one hour of homework immediately after returning home from school.",
+      "related_to": [
+        "Rules",
+        "Patterns of Behavior",
+        "Support Systems"
+      ],
+      "cas_type": "Family Structure",
+      "distinction": "Rules",
+      "source": "LLM Extraction"
+    }
+  ],
+  "Boundaries": [],
+  "Patterns of Behavior": [],
+  "Support Systems": [],
+  "Stress Points": [],
+  "Intergenerational Feedback": [],
+  "External Influences": [],
+  "Agent_Insights": {
+    "Karma": [
+      {
+        "insight": "The distribution of responsibilities may lead to an overstressed mother, potentially affecting her well-being and emotional health, due to her extensive role descriptions as wife, mother, full-time worker, and primary caregiver.",
+        "risk_level": "high",
+        "affected_roles": [
+          "Mother"
+        ],
+        "referenced_rules": []
+      },
+      {
+        "insight": "The father's frequent absence places additional responsibilities on the mother and might deprive the family of emotional and practical support, potentially leading to feelings of neglect or resentment within the family dynamics.",
+        "risk_level": "moderate",
+        "affected_roles": [
+          "Father",
+          "Mother",
+          "Teenage Daughter"
+        ],
+        "referenced_rules": []
+      },
+      {
+        "insight": "The curfew policy could lead to conflicts with the teenage daughter's growing need for independence, possibly resulting in emotional distress or rebellious behavior.",
+        "risk_level": "moderate",
+        "affected_roles": [
+          "Teenage Daughter"
+        ],
+        "referenced_rules": [
+          "Curfew Policy"
+        ]
+      },
+      {
+        "insight": "The no phones at dinner rule supports family unity and communication, but may be seen as restrictive by teens, balancing between ethical values of respect for personal freedom and family cohesion.",
+        "risk_level": "low",
+        "affected_roles": [
+          "Teenage Daughter"
+        ],
+        "referenced_rules": [
+          "No Phones at Dinner Rule"
+        ]
+      },
+      {
+        "insight": "Linking chore completion to screen time privileges could lead to practical disagreements on fairness and obedience, depending on the consistency of enforcement and the teenagers' views on autonomy.",
+        "risk_level": "moderate",
+        "affected_roles": [
+          "Teenage Daughter"
+        ],
+        "referenced_rules": [
+          "Chore Completion Rule"
+        ]
+      },
+      {
+        "insight": "Mother's ultimate authority over educational decisions might lead to intergenerational conflicts and restrict the inclusion of children\u2019s and perhaps the father\u2019s perspectives in critical family decisions.",
+        "risk_level": "moderate",
+        "affected_roles": [
+          "Mother",
+          "Father",
+          "Teenage Daughter"
+        ],
+        "referenced_rules": [
+          "Decision Making Hierarchy"
+        ]
+      }
+    ],
+    "DSRP": [
+      {
+        "insight": "The mother's role is significantly binding as both descriptions emphasize her responsibilities towards family care and decisions, highlighting the deep interplay between roles and rules within the family system.",
+        "dsrp_elements": [
+          "Distinction",
+          "Relationship"
+        ],
+        "related_entities": [
+          "Mother",
+          "Decision Making Hierarchy"
+        ]
+      },
+      {
+        "insight": "The father's two contrasting role descriptions frame his absence and lesser engagement as a stress point, potentially affecting the family system's stability and this may impact the effectiveness of family rules like curfews and chores.",
+        "dsrp_elements": [
+          "Distinction",
+          "Relationship"
+        ],
+        "related_entities": [
+          "Father",
+          "Curfew Policy",
+          "Chore Completion Rule"
+        ]
+      },
+      {
+        "insight": "The teenage daughter's resistance to rules like the curfew policy forms a significant theme highlighting developmental perspectives, which often manifest as behavioral patterns and stress points challenging established rules.",
+        "dsrp_elements": [
+          "Perspective",
+          "Relationship"
+        ],
+        "related_entities": [
+          "Teenage Daughter",
+          "Curfew Policy"
+        ]
+      },
+      {
+        "insight": "The grandmother's role as an emotional stabilizer and part of the support system interacts directly with other family roles, mitigating stress points and potentially altering how rules like the homework policy are perceived and followed.",
+        "dsrp_elements": [
+          "System",
+          "Relationship"
+        ],
+        "related_entities": [
+          "Grandmother",
+          "Homework Policy"
+        ]
+      },
+      {
+        "insight": "Rules about screen time and no phones at dinner relate to patterns of behavior aiming at balanced family values, showcasing how rules serve as tools to reinforce desired behaviors within the family dynamic.",
+        "dsrp_elements": [
+          "Distinction",
+          "System"
+        ],
+        "related_entities": [
+          "No Phones at Dinner Rule",
+          "Chore Completion Rule"
+        ]
+      }
+    ],
+    "Complexity": [
+      {
+        "insight": "The role distinction data reveals strong family-based interdependencies, particularly through roles such as 'Mother' and 'Father' showing unequal distribution of responsibilities leading to stress points.",
+        "related_elements": [
+          "Mother",
+          "Father",
+          "Stress Points"
+        ],
+        "complexity_signal": "fragility"
+      },
+      {
+        "insight": "The emergence of resistance from the teenage daughter against household rules indicates a feedback loop where imposition and resistance affect household dynamics, potentially creating unpredictable patterns of behavior.",
+        "related_elements": [
+          "Teenage Daughter",
+          "Curfew Policy",
+          "Chore Completion Rule"
+        ],
+        "complexity_signal": "unpredictability"
+      },
+      {
+        "insight": "Rules like 'No Phones at Dinner' and 'Curfew Policy' are attempts to establish boundaries and values but can create unintended consequences, such as enhancing generational conflicts or resistance against authority.",
+        "related_elements": [
+          "No Phones at Dinner Rule",
+          "Curfew Policy"
+        ],
+        "complexity_signal": "fragility"
+      },
+      {
+        "insight": "Interdependencies noted between rules and roles, such as the decision-making hierarchy rule granting the mother ultimate authority, leading to stability yet potentially overburdening and dependent fragility if the role is challenged.",
+        "related_elements": [
+          "Decision Making Hierarchy",
+          "Mother"
+        ],
+        "complexity_signal": "fragility"
+      },
+      {
+        "insight": "Grandmother's role as an emotional support introduces a support system that helps mitigate stress and stabilize the family dynamic, underscoring the positive role of extended family in resilience.",
+        "related_elements": [
+          "Grandmother",
+          "Support Systems"
+        ],
+        "complexity_signal": "stability"
+      }
+    ],
+    "Chaos": [
+      {
+        "insight": "The 'No Phones at Dinner Rule' contributes to amplified family conversations which can unexpectedly influence family dynamics positively by fostering bonding, or negatively by leading to escalated confrontations.",
+        "trigger_elements": [
+          "No Phones at Dinner Rule"
+        ],
+        "impacted_elements": [
+          "Family conversations",
+          "Family bonding",
+          "Family conflicts"
+        ],
+        "volatility_type": "amplification"
+      },
+      {
+        "insight": "Changes in the behavior of the Teenage Daughter resisting household rules can act as a small input that dramatically shifts the household dynamics, leading to new stress points or pattern changes among other family members.",
+        "trigger_elements": [
+          "Teenage Daughter",
+          "Curfew Policy"
+        ],
+        "impacted_elements": [
+          "Mother",
+          "Father",
+          "Family stress levels"
+        ],
+        "volatility_type": "butterfly"
+      },
+      {
+        "insight": "The dependency of screen time on chore completion creates a feedback loop where children's adherence to chores is directly linked to their leisure activities, potentially leading to conflicts or enhanced cooperation.",
+        "trigger_elements": [
+          "Chore Completion Rule"
+        ],
+        "impacted_elements": [
+          "Children's behavior",
+          "Family cooperation",
+          "Family conflicts"
+        ],
+        "volatility_type": "feedback"
+      },
+      {
+        "insight": "The Father's role and his frequent absence from daily family management acts as a sensitive initial condition affecting family stability and distribution of responsibilities, which intensifies the mother's role and possibly stress.",
+        "trigger_elements": [
+          "Father"
+        ],
+        "impacted_elements": [
+          "Mother",
+          "Family stability",
+          "Distribution of responsibilities"
+        ],
+        "volatility_type": "sensitivity"
+      },
+      {
+        "insight": "The Homework Policy requiring one hour of study after school can create delayed social and academic reactions, where initial resistance or compliance may influence future educational outcomes and personal development.",
+        "trigger_elements": [
+          "Homework Policy"
+        ],
+        "impacted_elements": [
+          "Children's academic performance",
+          "Children's personal development"
+        ],
+        "volatility_type": "delay"
+      }
+    ]
+  }
+}

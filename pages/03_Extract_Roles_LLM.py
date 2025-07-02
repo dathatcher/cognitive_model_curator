@@ -11,46 +11,60 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 st.set_page_config(page_title="Extract Rules from Text", page_icon="📏")
 st.title("📏 LLM-Powered Rule Extraction")
 
-# 🔍 Auto-detect latest project directory
-def get_latest_project_path():
-    project_dirs = sorted(glob("cmc/data/*"), key=os.path.getmtime, reverse=True)
-    return project_dirs[0] if project_dirs else ""
-
-auto_path = get_latest_project_path()
-project_dir = st.text_input("📁 Project folder path:", value=auto_path)
-
-# ❗Validation
-if not project_dir or not Path(project_dir).exists():
-    st.error("⚠️ Could not find a valid project directory. Make sure one has been initialized.")
+# 🔽 Project dropdown
+project_dirs = sorted(glob("projects/*"))
+if not project_dirs:
+    st.error("⚠️ No projects found in 'projects/' folder.")
     st.stop()
 
+project_name_map = {Path(p).name: p for p in project_dirs}
+project_selection = st.selectbox("📂 Select a project:", list(project_name_map.keys()))
+project_dir = project_name_map[project_selection]
+
+# ❗ Validate project folder
+if not Path(project_dir).exists():
+    st.error("⚠️ Invalid project directory.")
+    st.stop()
+
+# ✅ Load system model
 systems_model_path = Path(project_dir) / "systems_model.json"
 if not systems_model_path.exists():
     st.error("⚠️ systems_model.json not found in that directory.")
     st.stop()
 
-# ✅ Load the mental model
 with open(systems_model_path, "r") as f:
     model_data = json.load(f)
 
 distinctions = list(model_data.keys())
 
-st.markdown("### 📄 Paste a description of household expectations, discipline, or structure:")
-raw_text = st.text_area("Narrative text", height=250, placeholder="e.g., Children must do homework before screen time. The daughter must be home by 10pm...")
+# ✅ Load CAS type from meta.json (if available)
+cas_type = "the system"
+meta_path = Path(project_dir) / "meta.json"
+if meta_path.exists():
+    try:
+        with open(meta_path, "r") as f:
+            meta_data = json.load(f)
+            cas_type = meta_data.get("cas_type", "the system")
+    except:
+        pass
+
+# 🧠 User Input
+st.markdown(f"### 📄 Describe expectations, protocols, or behaviors in your **{cas_type}**:")
+raw_text = st.text_area("Narrative text", height=250, placeholder="e.g., All changes must be approved by a team lead...")
 
 if st.button("📏 Extract Rules with GPT-4"):
     with st.spinner("Analyzing..."):
         prompt = f"""
-You are a systems thinking expert. A user has described patterns of discipline and expectations within a family system.
+You are a systems thinking expert. A user has described patterns, policies, and rules within a {cas_type.lower()}.
 
-Please extract the **rules** from the text — including both explicit rules (e.g., curfew, screen time) and implicit ones (e.g., emotional tone, who makes decisions).
+Please extract both formal (e.g., written policy, technical requirement) and informal (e.g., cultural expectations, implicit behavior) **rules** from the following description.
 
 For each rule:
-- Assign a clear **name** (e.g., "Curfew Policy")
-- Provide a **description** of how it functions or what it implies
-- Suggest related distinctions (choose from: {distinctions})
+- Give it a short, clear **name** (e.g., "MFA Requirement", "Curfew Policy")
+- Write a 1-2 sentence **description**
+- Suggest related distinctions from this list: {distinctions}
 
-Return your response as a **strict JSON array** with the following format:
+Output your response as a **strict JSON array**, like:
 [
   {{
     "name": "...",
@@ -58,7 +72,7 @@ Return your response as a **strict JSON array** with the following format:
     "related_to": ["...", "..."]
   }}
 ]
-Do not include any text or explanation. Only output valid JSON.
+Do not include explanations or extra text.
 
 Text:
 \"\"\"{raw_text}\"\"\"
@@ -82,14 +96,18 @@ Text:
                 try:
                     extracted_rules = ast.literal_eval(content)
                 except Exception as eval_err:
-                    st.error("❌ Still failed to parse LLM output. See below:")
+                    st.error("❌ Failed to parse LLM output. See below:")
                     st.code(content)
                     st.stop()
 
             for rule in extracted_rules:
-                rule["cas_type"] = "Family Structure"
+                rule["cas_type"] = cas_type
                 rule["distinction"] = "Rules"
                 rule["source"] = "LLM Extraction"
+
+            # ✅ Ensure Rules key exists
+            if "Rules" not in model_data:
+                model_data["Rules"] = []
 
             model_data["Rules"].extend(extracted_rules)
 

@@ -1,0 +1,25 @@
+[
+  {
+    "insight": "The data set on 'Human Interactions' is empty, which can be a signal of insufficient data or improper recording mechanisms, failing to capture a critical aspect of the system. This omission can contribute to a lack of understanding of interdependencies and feedback loops which are vital in assessing systemic health and resilience.",
+    "related_elements": [
+      "Data Collection",
+      "System Monitoring"
+    ],
+    "complexity_signal": "fragility"
+  },
+  {
+    "insight": "Without information on 'Human Interactions,' there is a risk of missing emergent behaviors that surface from intricate human relationships and interactions. This absence could mask the detection of new patterns or behaviors that emerge from complex social systems.",
+    "related_elements": [
+      "Emergent Behavior"
+    ],
+    "complexity_signal": "unpredictability"
+  },
+  {
+    "insight": "Lack of insight into 'Human Interactions' might prevent the identification of ripple effects that originate from changes in roles, rules, or dynamics within the human components of the system. This can block signals indicative of adaptive or maladaptive shifts in the system.",
+    "related_elements": [
+      "Ripple Effects",
+      "Role Dynamics"
+    ],
+    "complexity_signal": "fragility"
+  }
+]

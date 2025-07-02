@@ -82,7 +82,7 @@ Please propose an initial set of top-level distinctions (categories of entities)
     # === Shared Write Logic ===
     timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
     project_slug = system_name.lower().replace(" ", "_")
-    project_path = Path(f"cmc/data/{project_slug}_{timestamp}")
+    project_path = Path(f"projects/{project_slug}_{timestamp}")
     project_path.mkdir(parents=True, exist_ok=True)
 
     base_model = {key: [] for key in top_level_distinctions}
