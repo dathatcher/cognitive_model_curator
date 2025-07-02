@@ -1,0 +1,32 @@
+[
+  {
+    "insight": "Ensuring that the Payroll App reliably and accurately handles employee compensation is crucial, as errors could lead to financial and emotional distress for employees.",
+    "risk_level": "high",
+    "affected_roles": [
+      "Developer"
+    ],
+    "referenced_rules": [
+      "Mandatory Human Role"
+    ]
+  },
+  {
+    "insight": "The rule that each application must be associated with at least one human role bolsters accountability and reduces the likelihood of unchecked errors and ethical lapses in automated systems.",
+    "risk_level": "moderate",
+    "affected_roles": [
+      "Developer"
+    ],
+    "referenced_rules": [
+      "Mandatory Human Role"
+    ]
+  },
+  {
+    "insight": "If developers or associated roles overlook rigorous testing and maintenance of the Payroll App, it could compromise employee trust and company reputation.",
+    "risk_level": "high",
+    "affected_roles": [
+      "Developer"
+    ],
+    "referenced_rules": [
+      "Mandatory Human Role"
+    ]
+  }
+]

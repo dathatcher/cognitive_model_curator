@@ -17,6 +17,9 @@ project_name_map = {Path(p).name: p for p in project_dirs}
 project_selection = st.selectbox("📂 Select a project:", list(project_name_map.keys()))
 project_dir = project_name_map[project_selection]
 
+# Dynamically derive cas_type from folder name
+cas_type = project_selection.replace("_", " ")
+
 # ✅ Load systems_model.json
 systems_model_path = Path(project_dir) / "systems_model.json"
 if systems_model_path.exists():
@@ -24,7 +27,7 @@ if systems_model_path.exists():
         model_data = json.load(f)
 
     st.subheader("📌 Add a Role to the Mental Model")
-    role_name = st.text_input("🧍 Role name", placeholder="e.g., Mother, Child, Stepfather")
+    role_name = st.text_input("🧍 Role name", placeholder="e.g., Developer, Judge, Mother")
     role_description = st.text_area("📖 Description", placeholder="Describe this role's function or influence.")
     role_relationships = st.multiselect("🔗 Related Distinctions", model_data.keys(), default=[])
 
@@ -37,7 +40,7 @@ if systems_model_path.exists():
             "name": role_name,
             "description": role_description,
             "related_to": role_relationships,
-            "cas_type": "Family Structure",
+            "cas_type": cas_type,
             "distinction": "Roles",
             "source": "Manual Entry",
             "timestamp": datetime.now(timezone.utc).isoformat()
@@ -52,7 +55,7 @@ if systems_model_path.exists():
         with open(systems_model_path, "w") as f:
             json.dump(model_data, f, indent=2)
 
-        st.success(f"Added role: {role_name}")
+        st.success(f"✅ Added role: {role_name}")
         st.json(role_obj)
 else:
-    st.error("Could not find systems_model.json in the selected directory.")
+    st.error("⚠️ Could not find systems_model.json in the selected directory.")

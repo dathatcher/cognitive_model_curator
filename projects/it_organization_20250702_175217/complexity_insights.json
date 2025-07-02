@@ -1,0 +1,36 @@
+[
+  {
+    "insight": "Interdependency between roles and applications underpinned by rules creates complexity",
+    "related_elements": [
+      "Developer",
+      "Payroll App",
+      "Mandatory Human Role"
+    ],
+    "complexity_signal": "stability"
+  },
+  {
+    "insight": "Feedback loop emerges from the rule requiring human roles for applications, enhancing checks and monitoring",
+    "related_elements": [
+      "Mandatory Human Role",
+      "Developer",
+      "Payroll App"
+    ],
+    "complexity_signal": "stability"
+  },
+  {
+    "insight": "Emergent behavior is probable from interlinking human roles with application functionality and oversight",
+    "related_elements": [
+      "Developer",
+      "Payroll App"
+    ],
+    "complexity_signal": "unpredictability"
+  },
+  {
+    "insight": "The rule mandating human accountability in applications might introduce fragility through reliance on manual human oversight",
+    "related_elements": [
+      "Mandatory Human Role",
+      "Developer"
+    ],
+    "complexity_signal": "fragility"
+  }
+]
